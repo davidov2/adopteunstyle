@@ -2,3 +2,16 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+
+
+.demo{
+    height:100vh;
+    color: white;
+    background-image: image-url("banner-home-adopteunstyle.jpg");
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    padding-right: 50px;
+}
