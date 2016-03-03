@@ -1,23 +1,43 @@
-Tous les produits :
+<h1 class="text-center">Voici tous les produits de votre look :</h1>
 
 
-  <% @products.each do |p| %>
-<div class="container">
-  <div class="row">
-    <img src="<%= p.image %>" alt="Smiley face" height="200" width="150">
-    <p><strong><%= p.title %></strong></p>
-    <p><%= p.description %></p>
-    <p>Tailles disponibles :<%= p.size %></p>
-    <p>Prix : <%= p.price %>€</p>
-    <p>Couleur : <%= p.color %></p>
-    <p><%= p.category %></p>
-    <p><a class="btn btn-danger" href="<%= p.link %>" role="button">Voir le produit</a></p>
-    <% end %>
+<div class="wrapper-sidebar">
+
+  <div class="left-bar">
+
   </div>
 
-<div class="container padded-basket text-center">
-<%= link_to "Rechercher un style", new_product_path, :class => "btn btn-danger" %>
-</div>
+  <div class="right-content">
+    <div class="container">
+      <div class="row">
+          <% @products.each do |p| %>
+            <div class="col-xs-12 col-md-4">
+            <%= link_to product_path(p) do %>
+            <div class="card-product">
+                <%= image_tag p.image%>
+                <div class="card-title">
+                  <%= p.title %>
+                </div>
+                <div class="card-price">
+                  <%= p.price %>
+                </div>
+                <div class="btn btn-danger card-cta">
+                  voir l'offre
+                </div>
+            </div>
+            <% end %>
+            </div>
 
+          <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="container padded-basket text-center">
+  <%= link_to "Rechercher un style", root_path, :class => "btn btn-danger" %>
+  </div>
+
+
+</div>
 
 
