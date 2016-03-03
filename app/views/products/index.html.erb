@@ -1,21 +1,19 @@
-<h2 class="text-center">Produits disponibles auprés de nos partenaires correspondant à votre choix :</h2>
+Tous les produits :
 
+
+  <% @products.each do |p| %>
 <div class="container">
   <div class="row">
-    <% @products.each do |p| %>
-    <li>
-  <%= p.title %>
-  <%= p.description %>
-  <%= p.size %>
-  <%= p.price %>
-  <%= p.color %>
-  <%= p.brand %>
-  <%= p.category %>
-</li>
-  <% end %>
-</ul>
- </div>
-</div>
+    <img src="<%= p.image %>" alt="Smiley face" height="200" width="150">
+    <p><strong><%= p.title %></strong></p>
+    <p><%= p.description %></p>
+    <p>Tailles disponibles :<%= p.size %></p>
+    <p>Prix : <%= p.price %>€</p>
+    <p>Couleur : <%= p.color %></p>
+    <p><%= p.category %></p>
+    <p><a class="btn btn-danger" href="<%= p.link %>" role="button">Voir le produit</a></p>
+    <% end %>
+  </div>
 
 <div class="container padded-basket text-center">
 <%= link_to "Rechercher un style", new_product_path, :class => "btn btn-danger" %>

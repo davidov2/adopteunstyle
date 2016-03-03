@@ -31,7 +31,7 @@ supplier.each do |s|
       next unless p.css('ean').first
       # Passe au suivante si c'est pas pour homme
       next unless p.css('fields gender').first.content.strip == 'Men'
-      # On insert le produit que s'il n'existe pas (clé : ean)
+      # On insere le produit que s'il n'existe pas (clé : ean)
       product = Product.where(ean: p.css('ean').first.content.strip).first
       if product
         # On supprime les offres de ce produit pour ce supplier :
@@ -43,8 +43,11 @@ supplier.each do |s|
         product = Product.new
         product.title = p.css('name').first.content.gsub(/\n/, '').strip
         product.description = p.css('description').first.content.strip
+        product.image = p.css('imageurl').first.content.strip unless p.css('imageurl').first.nil?
+        product.link = p.css('advertiserproducturl').first.content.strip
         product.ean = p.css('ean').first.content.strip
         product.size = p.css('size').first.content.strip
+        product.price = p.css('price').first.content.strip
         product.color = p.css('fields colour').first.content.strip
         product.brand = Brand.first_or_create!(name: p.css('brand').first.content.strip)
         if category = p.css('TDCategoryID').first
