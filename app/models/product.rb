@@ -3,4 +3,10 @@ class Product < ActiveRecord::Base
   has_many :offers, dependent: :destroy
   belongs_to :brand
   validates_uniqueness_of :ean
+
+
+  def size_array
+    self.size.split(',')
+  end
+
 end
