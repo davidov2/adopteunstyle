@@ -1,5 +1,7 @@
 require 'open-uri'
 
+Product.destroy_all
+
 tradedoubler_category_id_to_category_name = {'170' => 'Veste'}
 
 supplier = Array.new
@@ -12,11 +14,11 @@ supplier.push({
 })
 
 # Un autre supplier (pas encore utilisé pour le moment)
-supplier.push({
-    name: 'Carnet de Vol',
-    url: 'http://url-de-mon-feed',
-    feed_type: 'Effiliation'
-})
+# supplier.push({
+#     name: 'Carnet de Vol',
+#     url: 'http://url-de-mon-feed',
+#     feed_type: 'Effiliation'
+# })
 
 supplier.each do |s|
   puts 'Importing from ' << s[:name] << ' (' << s[:feed_type] << ')'
@@ -24,7 +26,7 @@ supplier.each do |s|
   if s[:feed_type] == 'tradedoubler'
     docs = Nokogiri::Slop(open(s[:url]))
     products = docs.xpath('//product')
-    products.each do |p|
+    products[0..10].each do |p|
       # Passe au suivant si l'ean n'est pas renseigné dans le flux
       next unless p.css('ean').first
       # Passe au suivante si c'est pas pour homme
