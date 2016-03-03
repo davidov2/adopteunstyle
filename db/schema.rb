@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160303102940) do
+ActiveRecord::Schema.define(version: 20160303110003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,7 +39,12 @@ ActiveRecord::Schema.define(version: 20160303102940) do
   create_table "likes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "product_id"
   end
+
+  add_index "likes", ["product_id"], name: "index_likes_on_product_id", using: :btree
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
 
   create_table "looks", force: :cascade do |t|
     t.string   "name"
@@ -64,12 +69,15 @@ ActiveRecord::Schema.define(version: 20160303102940) do
     t.string   "size"
     t.string   "price"
     t.string   "color"
-    t.string   "product_type"
     t.string   "brand"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "ean"
+    t.integer  "brand_id"
+    t.string   "category"
   end
+
+  add_index "products", ["brand_id"], name: "index_products_on_brand_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -91,5 +99,8 @@ ActiveRecord::Schema.define(version: 20160303102940) do
 
   add_foreign_key "choices", "looks"
   add_foreign_key "choices", "users"
+  add_foreign_key "likes", "products"
+  add_foreign_key "likes", "users"
   add_foreign_key "offers", "products"
+  add_foreign_key "products", "brands"
 end
