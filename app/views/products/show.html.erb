@@ -10,14 +10,9 @@
           <p><strong>Prix : </strong><%= @product.price %>€</p>
           <p><strong>Date : </strong><%= @product.size %></p>
           <div class="btn-group padded-product">
-
-            <%= link_to "Caca boum boum", "#", :class => "btn btn-danger" %>
-<!--             <%= link_to "Retour à la liste", root_path, :class => "btn btn-danger" %> <-->      </div>
+            </div>
           <div class="padded-product">
-            <%= link_to "Voir toutes les annonces", products_path, :class => "btn btn-danger" %>
-          </div>
-          <div class="padded-product">
-            <%= link_to "Supprimer cette annonce", products_path, method: :delete, :class => "btn btn-warning" %>
+            <%= link_to "Retour aux résultats", products_path, :class => "btn btn-danger" %>
           </div>
         </div>
       </div>
