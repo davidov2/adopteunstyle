@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+#home-parallax {
+  background-image: url('image-parallax.jpg');
+  background-attachment: fixed;
+  background-position: 50% 20px;
+  background-repeat: no-repeat;
+  height: 250px;
+  position: relative;
+  padding: 200px;
+  background-size: cover;
+  margin-bottom: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.content {
+font-weight: lighter;
+border-radius: 10px;
+background: white;
+opacity: 0.5;
+padding: 10px;
+
+}
+
+#home2-parallax {
+  background-image: url('image3-parallax.jpg');
+  background-attachment: fixed;
+  background-position: 50% 20px;
+  background-repeat: no-repeat;
+  height: 250px;
+  position: relative;
+  padding: 200px;
+  background-size: cover;
+  margin-bottom: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.content2 {
+color: white;
+font-weight: lighter;
+border-radius: 10px;
+background: black;
+opacity: 0.8;
+padding: 0px 20px 20px 20px;
+
+}
