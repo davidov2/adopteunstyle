@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.0'
+ruby '2.2.3'
 
 gem 'rails', '4.2.5.1'
 gem 'puma'
@@ -17,6 +17,10 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 
+group :development do
+  gem 'faker'
+end
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
@@ -24,8 +28,6 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'spring'
-
-
 end
 
 group :production do

@@ -1,0 +1,15 @@
+<ul>
+  <% @products.each do |p| %>
+<li>
+  <%= p.title %>
+  <%= p.description %>
+  <%= p.size %>
+  <%= p.price %>
+  <%= p.color %>
+  <%= p.brand %>
+  <%= p.product_type %>
+</li>
+  <% end %>
+
+
+</ul>
