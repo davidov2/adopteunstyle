@@ -4,14 +4,73 @@
  * ------------------------------------- */
 
 
-.demo{
+.banner{
     height:100vh;
     color: white;
-    background-image: image-url("banner-home-adopteunstyle.jpg");
+    background-image: image-url("image-banner.jpeg");
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 20px;
+    font-weight: lighter;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: row-reverse;
-    padding-right: 50px;
+    padding-right: 100px;
 }
+
+.banner-content {
+    font-weight: lighter;
+
+}
+
+.feature {
+  opacity: 0.5;
+  margin: 150px auto;
+  font-size: 75px;
+  color: grey;
+  font-weight: lighter;
+  border-radius: 50%;
+  border: grey 1px solid;
+  width: 160px;
+  height: 160px;
+  text-align: center;
+  vertical-align: middle;
+      transition: all 0.5s ease-in-out 0s;
+    -webkit-transition: all 0.5s ease-in-out 0s;
+    -moz-transition: all 0.5s ease-in-out 0s;
+    -ms-transition: all 0.5s ease-in-out 0s;
+    -o-transition: all 0.5s ease-in-out 0s;
+}
+
+.feature h2 {
+  font-weight: lighter;
+  margin-top: 0;
+  font-size: 18px;
+
+}
+
+.feature:hover {
+  opacity: 1.0;
+  border: black 1px solid;
+  background-color: #F6F7F8;
+}
+
+.feature p {
+  font-size: 20px;
+  margin: 50px auto;
+
+}
+
+.image-chiffre {
+  width: 150px;
+}
+
+.record {
+  margin: 15px auto;
+}
+
+.wrapper-temoignage p {
+  font-weight: lighter;
+}
+
