@@ -1,6 +1,9 @@
-<ul>
-  <% @products.each do |p| %>
-<li>
+<h2 class="text-center">Produits disponibles auprés de nos partenaires correspondant à votre choix :</h2>
+
+<div class="container">
+  <div class="row">
+    <% @products.each do |p| %>
+    <li>
   <%= p.title %>
   <%= p.description %>
   <%= p.size %>
@@ -10,6 +13,13 @@
   <%= p.product_type %>
 </li>
   <% end %>
-
-
 </ul>
+ </div>
+</div>
+
+<div class="container padded-basket text-center">
+<%= link_to "Rechercher un style", new_product_path, :class => "btn btn-danger" %>
+</div>
+
+
+
