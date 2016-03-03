@@ -5,15 +5,14 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-md-6">
-          <p><strong>Annonce :</strong> "<%= @product.title %>"</p>
-          <p><strong>Description de l'annonce :</strong><br><%= @product.description %></p>
-          <p><strong>Prix : </strong><%= @product.price %>€</p>
-          <p><strong>Date : </strong><%= @product.size %></p>
-          <div class="btn-group padded-product">
-            </div>
-          <div class="padded-product">
-            <%= link_to "Retour aux résultats", products_path, :class => "btn btn-danger" %>
-          </div>
+        <p><strong>Annonce :</strong> "<%= @product.title %>"</p>
+        <p><strong>Description de l'annonce :</strong><br><%= @product.description %></p>
+        <p><strong>Prix : </strong><%= @product.price %>€</p>
+        <p><strong>Date : </strong><%= @product.size %></p>
+        <div class="btn-group padded-product">
+        </div>
+        <div class="padded-product">
+          <%= link_to "Retour aux résultats", products_path, :class => "btn btn-danger" %>
         </div>
       </div>
     </div>
