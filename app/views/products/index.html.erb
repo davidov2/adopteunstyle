@@ -1,15 +1,45 @@
-<ul>
-  <% @products.each do |p| %>
-<li>
-  <%= p.title %>
-  <%= p.description %>
-  <%= p.size %>
-  <%= p.price %>
-  <%= p.color %>
-  <%= p.brand %>
-  <%= p.product_type %>
-</li>
-  <% end %>
+<h1 class="text-center">Voici tous les produits de votre look :</h1>
+
+<div class="wrapper-sidebar">
+  <div class="left-bar">
+    hello
+  </div>
+    <div class="right-content">
+      <div class="container">
+        <div class="row">
+            <% @products.each do |p| %>
+              <div class="col-xs-12 col-md-4">
+              <%= link_to product_path(p) do %>
+              <div class="card-product">
+                  <%= image_tag p.image%>
+                  <div class="card-title">
+                    <%= p.title %>
+                  </div>
+                  <div class="card-price">
+                    <%= p.price %>
+                  </div>
+                  <div class="btn btn-danger card-cta">
+                    voir l'offre
+                  </div>
+              </div>
+              <% end %>
+              </div>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  <div class="container padded-basket text-center">
+  <%= link_to "Rechercher un style", root_path, :class => "btn btn-danger" %>
+  </div>
 
 
-</ul>
+<div class=sidebar>
+
+</div>
+
+  <div class="container padded-basket text-center">
+    <%= link_to "Retour aux styles", root_path, :class => "btn btn-danger" %>
+  </div>
+
+
+  </div>

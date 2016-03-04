@@ -47,3 +47,16 @@
   align-items: center;
   justify-content: center;
 }
+
+
+.card-size{
+  background-color: $gray-lighter;
+  border: 1px solid $gray;
+  padding: 5px;
+  margin: 3px;
+  color: $gray;
+}
+
+.border-gray{
+  border: 1px solid $gray-lighter;
+}
