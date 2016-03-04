@@ -1,0 +1,49 @@
+// Place all the styles related to the looks_controller controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.looks.index {
+
+   .look-image {
+     width: 186px;
+     height: 257px;
+     border: solid 1px #666;
+   }
+   .look-image-col {
+     height: 370px;
+     overflow: hidden;
+   }
+   .look-image input {
+     /* display: none; */
+   } 
+   #look-0 {
+     background-image: url('looks/look-0.png');
+   }
+   #look-1 {
+     background-image: url('looks/look-1.png');
+   }
+   #look-2 {
+     background-image: url('looks/look-2.png');
+   }
+   #look-3 {
+     background-image: url('looks/look-3.png');
+   }
+   #look-4 {
+     background-image: url('looks/look-4.png');
+   }
+   #look-5 {
+     background-image: url('looks/look-5.png');
+   }
+   #look-6 {
+     background-image: url('looks/look-6.png');
+   }
+   #look-7 {
+     background-image: url('looks/look-7.png');
+   }
+   #look-8 {
+     background-image: url('looks/look-8.png');
+   }
+   #look-9 {
+     background-image: url('looks/look-9.png');
+   }
+}
