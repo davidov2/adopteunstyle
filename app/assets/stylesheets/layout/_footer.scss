@@ -2,7 +2,7 @@
 // Your footer style
 .footer {
 background: #272727;
-padding: 12px
+padding: 50px
 }
 
 #p-footer{
@@ -14,6 +14,8 @@ padding: 12px
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 300px;
+  margin: auto;
 }
 .share-link {
   flex: 0 0 24%;
@@ -23,8 +25,17 @@ padding: 12px
   text-align: center;
   border-radius: 2px;
   cursor: pointer;
+
+transition: all 0.5s ease-in-out 0s;
+    -webkit-transition: all 0.5s ease-in-out 0s;
+    -moz-transition: all 0.5s ease-in-out 0s;
+    -ms-transition: all 0.5s ease-in-out 0s;
+    -o-transition: all 0.5s ease-in-out 0s;
+
+
+
   &:hover {
-    color: white;
+    color: red;
   }
 }
 .bg-text {
@@ -38,4 +49,8 @@ padding: 12px
 }
 .bg-facebook {
   background: #3b5998;
+}
+
+.mention-legal {
+  background: #272727;
 }
