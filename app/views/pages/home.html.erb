@@ -1,7 +1,7 @@
     <!-- BANNER HOME -->
 
-<div class="banner" data-stellar-background-ratio="0.5">
-  <div class="content2">
+<div class="banner banner-home"data-stellar-background-ratio="0.5">
+  <div class="wrapper-black">
     <h1>ADOPTE UN STYLE</h1>
     <h2>La meilleure sélection mode</h2>
     <%= link_to "Je commence", "#", class: "btn btn-primary" %>
@@ -9,27 +9,24 @@
 </div>
 
 
-<div class="wrapper text-center">
+<div class="wrapper-feature text-center">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-4">
         <div class="feature">
           <span>1</span>
-          <h2>AdopteUnStyle</h2>
           <div><p>Choisis et adopte ton style</p></div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-4">
         <div class="feature">
           <span>2</span>
-          <h2>AdopteUnStyle</h2>
           <div><p>AdopteUnStyle te sélectionne les meilleurs articles de mode</p></div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-4">
         <div class="feature">
           <span>3</span>
-          <h2>AdopteUnStyle</h2>
           <div><p>AdopteUnStyle te redirige vers tes fabriquants préférés</p></div>
         </div>
       </div>
@@ -38,9 +35,9 @@
   </div>
 </div>
 
-<div id="home-parallax" data-stellar-background-ratio="0.5">
- <div class="content">
-  <h1>Tous vos article sur www.adopteunstyle.com</h1>
+<div class="banner banner-parallax banner-parallax1" data-stellar-background-ratio="0.5">
+ <div class="wrapper-white">
+  <h1>Tous vos articles sur www.adopteunstyle.com</h1>
   <p>Vos actus mode et les dernières tendances de vêtements et accessoires sont sur le site de AdotpeUnStyle. Livraison et retours gratuits sur toutes les commandes.</p>
  </div>
 
@@ -52,7 +49,7 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-6">
-          <%= image_tag "feature1.png", class: ""%>
+          <%= image_tag "feature1.png", class: "image-chiffre"%>
           <p class="text-center">Trouvez parmis</p>
           <h2 class="text-center">100 000 références</h2>
         </div>
@@ -65,6 +62,52 @@
     </div>
   </div>
 </div>
+
+
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <%= image_tag "slide1.jpg"%>
+      <div class="carousel-caption">
+        <h2>Profitez des mêmes prix qu'en magasin.</h2>
+      </div>
+    </div>
+    <div class="item">
+    <%= image_tag "slide5.jpg"%>
+      <div class="carousel-caption">
+        <h2>Retrouvez une sélection de marques et créateurs incontournables.</h2>
+      </div>
+    </div>
+    <div class="item">
+    <%= image_tag "slide4.jpg"%>
+      <div class="carousel-caption">
+        <h2>Recevez des conseils personnalisés d'une experte de la mode.</h2>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
 
 
 <div class="wrapper-temoignage padded bg-grey text-center">
@@ -93,10 +136,12 @@
   </div>
 </div>
 
-<div id="home2-parallax" data-stellar-background-ratio="0.5">
- <div class="content2">
+<div class="banner banner-parallax banner-parallax2" data-stellar-background-ratio="0.5">
+ <div class="wrapper-black">
   <h1>www.adopteunstyle.com</h1>
  </div>
 </div>
+
+
 
 

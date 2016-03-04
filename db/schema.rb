@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160303113659) do
   add_index "choices", ["user_id"], name: "index_choices_on_user_id", using: :btree
 
   create_table "likes", force: :cascade do |t|
+    t.integer  "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
@@ -64,19 +65,19 @@ ActiveRecord::Schema.define(version: 20160303113659) do
   add_index "offers", ["product_id"], name: "index_offers_on_product_id", using: :btree
 
   create_table "products", force: :cascade do |t|
+    t.integer  "brand_id"
     t.string   "title"
     t.text     "description"
     t.string   "size"
-    t.string   "price"
     t.string   "color"
-    t.string   "brand"
+    t.string   "category"
+    t.string   "ean"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "ean"
-    t.integer  "brand_id"
-    t.string   "category"
+    t.string   "brand"
     t.string   "image"
     t.string   "link"
+
   end
 
   add_index "products", ["brand_id"], name: "index_products_on_brand_id", using: :btree
