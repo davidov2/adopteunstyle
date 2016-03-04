@@ -3,30 +3,11 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 
-.demo{
-
-    height:100vh;
-    color: white;
-    background-image: image-url("image-banner.jpeg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 20px;
-    font-weight: lighter;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row-reverse;
-    padding-right: 100px;
-}
-
-.banner-content {
-    font-weight: lighter;
-
-}
 
 .feature {
   opacity: 0.5;
   margin: 150px auto;
+  padding-top: 27px;
   font-size: 75px;
   color: grey;
   font-weight: lighter;
@@ -72,5 +53,14 @@
 
 .wrapper-temoignage p {
   font-weight: lighter;
+}
+
+.carousel-inner {
+  height: 350px;
+}
+
+.carousel-caption {
+
+  top: 150px;
 }
 

@@ -30,7 +30,7 @@ supplier.each do |s|
       # Passe au suivant si l'ean n'est pas renseigné dans le flux
       next unless p.css('ean').first
       # Passe au suivante si c'est pas pour homme
-      next unless p.css('fields gender').first.content.strip == 'Men'
+      next unless p.css('fields img_large').first.try(:content).try(:strip) == 'Men'
       # On insere le produit que s'il n'existe pas (clé : ean)
       product = Product.where(ean: p.css('ean').first.content.strip).first
       if product
@@ -42,12 +42,11 @@ supplier.each do |s|
         # Bon le search avec css c'est crado je pense mais j'ai pas le temps ...
         product = Product.new
         product.title = p.css('name').first.content.gsub(/\n/, '').strip
-        product.description = p.css('description').first.content.strip
         product.image = p.css('imageurl').first.content.strip unless p.css('imageurl').first.nil?
         product.link = p.css('advertiserproducturl').first.content.strip
+        product.description = p.css('description').first.content.strip
         product.ean = p.css('ean').first.content.strip
         product.size = p.css('size').first.content.strip
-        product.price = p.css('price').first.content.strip
         product.color = p.css('fields colour').first.content.strip
         product.brand = Brand.first_or_create!(name: p.css('brand').first.content.strip)
         if category = p.css('TDCategoryID').first
@@ -61,13 +60,20 @@ supplier.each do |s|
   end
 end
 
-exit!
-
 # Seed User
 user1 = User.first_or_create!(email: "admin@admin.com", password: "12345678")
 
 # Seed Look
-look1 = Look.first_or_create!(name: "Sport")
+Look.destroy_all
+look1 = Look.create!(id: 0, name: "BUSINESS Présentable en toutes circonstances")
+Look.create!(id: 1, name: "CREATEURS Les dernières nouveautés des designers")
+Look.create!(id: 2, name: "DENIM Décontracté et jeans basiques")
+Look.create!(id: 3, name: "LUXE Hautes gammes")
+Look.create!(id: 4, name: "NAUTIQUE Look maritime")
+Look.create!(id: 5, name: "ROCK Look branché pour rockers urbains")
+Look.create!(id: 6, name: "SPORT Look sportif")
+Look.create!(id: 7, name: "STREETWEAR Décontracté urbain")
+Look.create!(id: 8, name: "SURFWEAR Look on the beach..")
 
 # Seed Choice
 choice1 = Choice.first_or_create!(user: user1, look: look1)
@@ -78,6 +84,12 @@ choice1 = Choice.first_or_create!(user: user1, look: look1)
   Brand.first_or_create!(name: 'Marque ' << n.to_s, description:'Description de la marque ' << n.to_s)
 end
 
+# Association de la marque au premier look (pour le moment)
+b = Brand.first
+b.look = Look.first
+b.save!
+
+=begin
 # Seed Product
 20.times do
   Product.first_or_create!(title: Faker::Commerce.product_name,
@@ -88,3 +100,4 @@ end
     brand: Faker::Lorem.word,
     product_type: Faker::Hipster.word)
 end
+=end

@@ -1,22 +1,41 @@
 
-<h1 class="text-center">Détail de l'article :</h1>
+
 
 <div class="padded">
+            <%= link_to " Retour", products_path, :class => "text-right" %>
+
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-md-6">
-          <p><strong>Annonce :</strong> "<%= @product.title %>"</p>
-          <p><strong>Description de l'annonce :</strong><br><%= @product.description %></p>
-          <p><strong>Prix : </strong><%= @product.price %>€</p>
-          <p><strong>Taille : </strong><%= @product.size %></p>
-          <div class="btn-group padded-product">
-            </div>
-          <div class="padded-product">
-            <%= link_to "Retour aux résultats", products_path, :class => "btn btn-danger" %>
+
+      <div class="border-gray">
+          <%= image_tag @product.image %>
+        </div>
+      </div>
+
+          <div class="col-xs-12 col-md-6">
+            <h4><%= @product.title %></h4>
+            <p><%= @product.description %></p>
+
+            <p>Prix : <%= @product.price %>€</p>
+
+            <p>Tailles disponibles :</p>
+
+            <ul class="list-inline">
+              <% @product.size_array.each do |size| %>
+                <li class="card-size">
+                  <%= size %>
+                </li>
+              <%end%>
+
+            </ul>
+
+
+            <%= link_to "Acheter", @product.link, :class => "btn btn-danger" %>
+
           </div>
+
         </div>
       </div>
     </div>
-  </div>
-</div>
 
