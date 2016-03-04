@@ -26,7 +26,7 @@ supplier.each do |s|
   if s[:feed_type] == 'tradedoubler'
     docs = Nokogiri::Slop(open(s[:url]))
     products = docs.xpath('//product')
-    products[0..10].each do |p|
+    products[0..20].each do |p|
       # Passe au suivant si l'ean n'est pas renseigné dans le flux
       next unless p.css('ean').first
       # Passe au suivante si c'est pas pour homme

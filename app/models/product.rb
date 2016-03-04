@@ -9,4 +9,11 @@ class Product < ActiveRecord::Base
     self.size.split(',')
   end
 
+  def title_short
+    self.title.split(":")[0]
+  end
+
+
+
+
 end
