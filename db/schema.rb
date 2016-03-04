@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 20160304171714) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
-    t.integer  "product_id"
   end
 
   add_index "likes", ["product_id"], name: "index_likes_on_product_id", using: :btree
