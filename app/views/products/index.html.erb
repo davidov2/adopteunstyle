@@ -3,47 +3,46 @@
 
 <h1 class="text-center">Voici les articles de votre look préféré :</h1>
 
-
 <div class="sidebar-wrapper">
-<div class="sidebar-nav">
-    <h3 class ="text-center"><a href="#">Mode Homme</a></h3>
-    <h4>Category</h4>
-    <ul>
-    <% @categories.each do |category| %>
-      <li><a href="#"><%= category %></a></li>
-      <% end %>
-    </ul>
-      <h4>Couleur</h4>
+  <div class="sidebar-nav">
+      <h3 class ="text-center"><a href="#">Mode Homme</a></h3>
+      <h4>Category</h4>
       <ul>
-      <% @colors.each do |color| %>
-      <li><a href="#"><%= color %></a></li>
-      <% end %>
-    </ul>
-</div>
+      <% @categories.each do |category| %>
+        <li><a href="#"><%= category %></a></li>
+        <% end %>
+      </ul>
+        <h4>Couleur</h4>
+        <ul>
+        <% @colors.each do |color| %>
+        <li><a href="#"><%= color %></a></li>
+        <% end %>
+      </ul>
+  </div>
 </div>
 <div class="page-content-wrapper">
-      <div class="container container-full">
-        <div class="row">
-            <% @products.each do |p| %>
-              <div class="col-xs-12 col-md-4">
-              <%= link_to p.link, target: "blank" do %>
-              <div class="card-product">
-                  <%= image_tag p.image%>
-                  <div class="card-title">
-                    <%= p.title_short %>
-                  </div>
-                  <div class="card-price">
-                    <%= p.price %>
-                  </div>
-                  <div class="btn btn-danger btn-block card-cta ">
-                    voir l'offre
-                  </div>
-              </div>
-              <% end %>
-              </div>
+  <div class="container container-full">
+    <div class="row">
+        <% @products.each do |p| %>
+          <div class="col-xs-12 col-md-4">
+            <%= link_to p.link, target: "blank" do %>
+            <div class="card-product">
+                <%= image_tag p.image%>
+                <div class="card-title">
+                  <%= p.title_short %>
+                </div>
+                <div class="card-price">
+                  <%= p.price %>
+                </div>
+                <div class="btn btn-danger btn-block card-cta ">
+                  voir l'offre
+                </div>
+            </div>
             <% end %>
-        </div>
-      </div>
+          </div>
+        <% end %>
+    </div>
+  </div>
 </div>
 
 </div>
