@@ -18,6 +18,9 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'activeadmin', github: 'activeadmin'
 
+gem 'omniauth-facebook'
+
+
 
 group :development do
   gem 'faker'
