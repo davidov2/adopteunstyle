@@ -4,8 +4,11 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
+  resources :looks
+
   #root to: ''
   resources :products
+  post 'products/search', to: 'products#search', as: :products_search
 
 
   # The priority is based upon order of creation: first created -> highest priority.

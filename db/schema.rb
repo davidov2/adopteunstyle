@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20160304162122) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +23,10 @@ ActiveRecord::Schema.define(version: 20160304162122) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "look_id"
   end
+
+  add_index "brands", ["look_id"], name: "index_brands_on_look_id", using: :btree
 
   create_table "choices", force: :cascade do |t|
     t.string   "image"
@@ -46,10 +51,10 @@ ActiveRecord::Schema.define(version: 20160304162122) do
   end
 
   create_table "likes", force: :cascade do |t|
-    t.integer  "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.integer  "product_id"
   end
 
   add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
@@ -75,6 +80,7 @@ ActiveRecord::Schema.define(version: 20160304162122) do
     t.string   "title"
     t.text     "description"
     t.string   "size"
+    t.string   "price"
     t.string   "color"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -83,7 +89,6 @@ ActiveRecord::Schema.define(version: 20160304162122) do
     t.string   "category"
     t.string   "image"
     t.string   "link"
-    t.string   "price"
   end
 
   add_index "products", ["brand_id"], name: "index_products_on_brand_id", using: :btree
@@ -106,6 +111,7 @@ ActiveRecord::Schema.define(version: 20160304162122) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "brands", "looks"
   add_foreign_key "choices", "looks"
   add_foreign_key "choices", "users"
   add_foreign_key "likes", "users"

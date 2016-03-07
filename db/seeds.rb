@@ -26,7 +26,7 @@ supplier.each do |s|
   if s[:feed_type] == 'tradedoubler'
     docs = Nokogiri::Slop(open(s[:url]))
     products = docs.xpath('//product')
-    products[0..10].each do |p|
+    products[0..20].each do |p|
       # Passe au suivant si l'ean n'est pas renseigné dans le flux
       next unless p.css('ean').first
       # Passe au suivante si c'est pas pour homme
@@ -60,13 +60,20 @@ supplier.each do |s|
   end
 end
 
-exit!
-
 # Seed User
 user1 = User.first_or_create!(email: "admin@admin.com", password: "12345678")
 
 # Seed Look
-look1 = Look.first_or_create!(name: "Sport")
+Look.destroy_all
+look1 = Look.create!(id: 0, name: "BUSINESS Présentable en toutes circonstances")
+Look.create!(id: 1, name: "CREATEURS Les dernières nouveautés des designers")
+Look.create!(id: 2, name: "DENIM Décontracté et jeans basiques")
+Look.create!(id: 3, name: "LUXE Hautes gammes")
+Look.create!(id: 4, name: "NAUTIQUE Look maritime")
+Look.create!(id: 5, name: "ROCK Look branché pour rockers urbains")
+Look.create!(id: 6, name: "SPORT Look sportif")
+Look.create!(id: 7, name: "STREETWEAR Décontracté urbain")
+Look.create!(id: 8, name: "SURFWEAR Look on the beach..")
 
 # Seed Choice
 choice1 = Choice.first_or_create!(user: user1, look: look1)
@@ -77,6 +84,12 @@ choice1 = Choice.first_or_create!(user: user1, look: look1)
   Brand.first_or_create!(name: 'Marque ' << n.to_s, description:'Description de la marque ' << n.to_s)
 end
 
+# Association de la marque au premier look (pour le moment)
+b = Brand.first
+b.look = Look.first
+b.save!
+
+=begin
 # Seed Product
 20.times do
   Product.first_or_create!(title: Faker::Commerce.product_name,
@@ -87,3 +100,4 @@ end
     brand: Faker::Lorem.word,
     product_type: Faker::Hipster.word)
 end
+=end

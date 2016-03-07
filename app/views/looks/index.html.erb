@@ -1,0 +1,30 @@
+<h3>Sélectionnez un ou plusieurs looks :</h3>
+<div class="padded">
+  <div class="container">
+    <%= form_tag("/products/search", method: "post") do %>
+    <div class="row">
+        <% Look.all.each do |l| %>
+        <div class="look-image-col col-xs-1 col-md-3 col-lg-2 padded">
+          <div class="look-image" id="look-<%= l.id %>">
+            <%= check_box('look', l.id) %>
+          </div>
+          <p><%= l.name %></p>
+        </div>
+        <% end %>
+    </div>
+    <center>
+      <input type="submit" name="submit" value="Voir les produits" class="btn btn-primary">
+    </center>
+    <% end %>
+  </div>
+</div>
+<% content_for :after_js do %>
+<script>
+  $(function(){
+    $('.look-image').click(function() {
+        var cb = $(this).children("input");
+        cb.prop("checked", !cb.prop("checked"));
+    });                 
+  });
+</script>
+<% end %>
