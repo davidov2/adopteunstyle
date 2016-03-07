@@ -3,16 +3,13 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 
-
 .feature {
-  opacity: 0.5;
   margin: 150px auto;
+  margin-bottom: 225px;
   padding-top: 27px;
   font-size: 75px;
   color: grey;
   font-weight: lighter;
-  border-radius: 50%;
-  border: grey 1px solid;
   width: 160px;
   height: 160px;
   text-align: center;
@@ -28,7 +25,6 @@
   font-weight: lighter;
   margin-top: 0;
   font-size: 18px;
-
 }
 
 .feature:hover {
@@ -40,7 +36,6 @@
 .feature p {
   font-size: 20px;
   margin: 50px auto;
-
 }
 
 .image-chiffre {
@@ -60,7 +55,6 @@
 }
 
 .carousel-caption {
-
   top: 150px;
 }
 
