@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+
+ActiveRecord::Schema.define(version: 20160304162122) do
+
+=======
 ActiveRecord::Schema.define(version: 20160305162906) do
+>>>>>>> 39ccc8f4fdcc504f4d9126241142225d9e5acc2e
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +44,15 @@ ActiveRecord::Schema.define(version: 20160305162906) do
 
   add_index "choices", ["look_id"], name: "index_choices_on_look_id", using: :btree
   add_index "choices", ["user_id"], name: "index_choices_on_user_id", using: :btree
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "name"
+    t.text     "subject"
+    t.string   "email"
+    t.text     "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "feeds", force: :cascade do |t|
     t.string   "url"
