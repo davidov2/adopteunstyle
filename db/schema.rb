@@ -11,9 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 
 ActiveRecord::Schema.define(version: 20160304162122) do
 
+=======
+ActiveRecord::Schema.define(version: 20160305162906) do
+>>>>>>> 39ccc8f4fdcc504f4d9126241142225d9e5acc2e
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,7 +54,30 @@ ActiveRecord::Schema.define(version: 20160304162122) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "feeds", force: :cascade do |t|
+    t.string   "url"
+    t.integer  "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "supplier"
+  end
+
+  create_table "imports", force: :cascade do |t|
+    t.time     "started_at"
+    t.time     "finished_at"
+    t.integer  "status"
+    t.integer  "feed_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.text     "message"
+    t.integer  "total"
+    t.float    "success_rate"
+  end
+
+  add_index "imports", ["feed_id"], name: "index_imports_on_feed_id", using: :btree
+
   create_table "likes", force: :cascade do |t|
+    t.integer  "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
@@ -80,7 +107,6 @@ ActiveRecord::Schema.define(version: 20160304162122) do
     t.string   "title"
     t.text     "description"
     t.string   "size"
-    t.string   "price"
     t.string   "color"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -114,6 +140,7 @@ ActiveRecord::Schema.define(version: 20160304162122) do
   add_foreign_key "brands", "looks"
   add_foreign_key "choices", "looks"
   add_foreign_key "choices", "users"
+  add_foreign_key "imports", "feeds"
   add_foreign_key "likes", "users"
   add_foreign_key "offers", "products"
   add_foreign_key "products", "brands"
