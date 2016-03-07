@@ -1,4 +1,8 @@
 class Offer < ActiveRecord::Base
   belongs_to :product
-  validates_presence_of :price, :product_id, :supplier
+
+  validates :price, presence: true
+  validates :product, presence: true
+  validates :supplier, presence: true
+
 end
