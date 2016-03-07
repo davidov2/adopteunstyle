@@ -11,13 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-
-ActiveRecord::Schema.define(version: 20160304162122) do
-
-=======
 ActiveRecord::Schema.define(version: 20160305162906) do
->>>>>>> 39ccc8f4fdcc504f4d9126241142225d9e5acc2e
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,13 +71,13 @@ ActiveRecord::Schema.define(version: 20160305162906) do
   add_index "imports", ["feed_id"], name: "index_imports_on_feed_id", using: :btree
 
   create_table "likes", force: :cascade do |t|
-    t.integer  "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "product_id"
   end
 
+  add_index "likes", ["product_id"], name: "index_likes_on_product_id", using: :btree
   add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
 
   create_table "looks", force: :cascade do |t|
@@ -107,7 +101,9 @@ ActiveRecord::Schema.define(version: 20160305162906) do
     t.string   "title"
     t.text     "description"
     t.string   "size"
+    t.string   "price"
     t.string   "color"
+    t.string   "brand"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "ean"
@@ -141,6 +137,7 @@ ActiveRecord::Schema.define(version: 20160305162906) do
   add_foreign_key "choices", "looks"
   add_foreign_key "choices", "users"
   add_foreign_key "imports", "feeds"
+  add_foreign_key "likes", "products"
   add_foreign_key "likes", "users"
   add_foreign_key "offers", "products"
   add_foreign_key "products", "brands"
