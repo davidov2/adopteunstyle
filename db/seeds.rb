@@ -70,15 +70,28 @@ user1 = User.first_or_create!(email: "admin@admin.com", password: "12345678")
 
 # Seed Look
 Look.destroy_all
-look1 = Look.create!(id: 0, name: "BUSINESS Présentable en toutes circonstances")
-Look.create!(id: 1, name: "CREATEURS Les dernières nouveautés des designers")
-Look.create!(id: 2, name: "DENIM Décontracté et jeans basiques")
-Look.create!(id: 3, name: "LUXE Hautes gammes")
-Look.create!(id: 4, name: "NAUTIQUE Look maritime")
-Look.create!(id: 5, name: "ROCK Look branché pour rockers urbains")
-Look.create!(id: 6, name: "SPORT Look sportif")
-Look.create!(id: 7, name: "STREETWEAR Décontracté urbain")
-Look.create!(id: 8, name: "SURFWEAR Look on the beach..")
+# look1 = Look.create!( name: "BUSINESS Présentable en toutes circonstances", photo:"looks/look-9.png")
+# Look.create!( name: "CREATEURS Les dernières nouveautés des designers", photo:"looks/look-9.png")
+# Look.create!( name: "DENIM Décontracté et jeans basiques", photo:"looks/look-9.png")
+# Look.create!( name: "LUXE Hautes gammes", photo:"looks/look-9.png")
+# Look.create!( name: "NAUTIQUE Look maritime", photo:"looks/look-9.png")
+# Look.create!( name: "ROCK Look branché pour rockers urbains", photo:"looks/look-9.png")
+# Look.create!( name: "SPORT Look sportif", photo: "looks/look-9.png")
+# Look.create!( name: "STREETWEAR Décontracté urbain", photo:"looks/look-9.png")
+# Look.create!( name: "SURFWEAR Look on the beach..", photo:"looks/look-9.png")
+# Look.create!( name: "Tout les looks", photo:"looks/look-all.png")
+
+look1 = Look.create!( name: "BUSINESS", photo:"looks/look-9.png")
+Look.create!( name: "CREATEURS", photo:"looks/look-9.png")
+Look.create!( name: "DENIM", photo:"looks/look-9.png")
+Look.create!( name: "LUXE", photo:"looks/look-9.png")
+Look.create!( name: "NAUTIQUE", photo:"looks/look-9.png")
+Look.create!( name: "ROCK", photo:"looks/look-9.png")
+Look.create!( name: "SPORT", photo: "looks/look-9.png")
+Look.create!( name: "STREETWEAR", photo:"looks/look-9.png")
+Look.create!( name: "SURFWEAR", photo:"looks/look-9.png")
+Look.create!( name: "TOUS", photo:"looks/look-all.png")
+
 
 # Seed Choice
 choice1 = Choice.first_or_create!(user: user1, look: look1)
