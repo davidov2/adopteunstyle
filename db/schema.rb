@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160304171714) do
+ActiveRecord::Schema.define(version: 20160305162906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,10 +39,42 @@ ActiveRecord::Schema.define(version: 20160304171714) do
   add_index "choices", ["look_id"], name: "index_choices_on_look_id", using: :btree
   add_index "choices", ["user_id"], name: "index_choices_on_user_id", using: :btree
 
+  create_table "contacts", force: :cascade do |t|
+    t.string   "name"
+    t.text     "subject"
+    t.string   "email"
+    t.text     "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "feeds", force: :cascade do |t|
+    t.string   "url"
+    t.integer  "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "supplier"
+  end
+
+  create_table "imports", force: :cascade do |t|
+    t.time     "started_at"
+    t.time     "finished_at"
+    t.integer  "status"
+    t.integer  "feed_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.text     "message"
+    t.integer  "total"
+    t.float    "success_rate"
+  end
+
+  add_index "imports", ["feed_id"], name: "index_imports_on_feed_id", using: :btree
+
   create_table "likes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.integer  "product_id"
   end
 
   add_index "likes", ["product_id"], name: "index_likes_on_product_id", using: :btree
@@ -104,6 +136,7 @@ ActiveRecord::Schema.define(version: 20160304171714) do
   add_foreign_key "brands", "looks"
   add_foreign_key "choices", "looks"
   add_foreign_key "choices", "users"
+  add_foreign_key "imports", "feeds"
   add_foreign_key "likes", "products"
   add_foreign_key "likes", "users"
   add_foreign_key "offers", "products"

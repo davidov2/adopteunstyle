@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :contacts, only: :create
+
   devise_for :users
   root to: 'pages#home'
 
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
   #root to: ''
   resources :products
   post 'products/search', to: 'products#search', as: :products_search
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
