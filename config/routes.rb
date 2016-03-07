@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
+
+devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
+
+
   root to: 'pages#home'
 
   resources :looks
@@ -7,6 +11,8 @@ Rails.application.routes.draw do
   #root to: ''
   resources :products
   post 'products/search', to: 'products#search', as: :products_search
+
+end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -34,6 +40,12 @@ Rails.application.routes.draw do
   #       get 'sold'
   #     end
   #   end
+  #
+  #
+  #
+  #
+  #   1688917181364343
+  #   da5c217d9513f1f3e81f68928167582d
 
   # Example resource route with sub-resources:
   #   resources :products do
@@ -62,4 +74,3 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
