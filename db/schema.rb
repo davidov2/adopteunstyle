@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160304113024) do
+ActiveRecord::Schema.define(version: 20160304162122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 20160304113024) do
   add_index "choices", ["look_id"], name: "index_choices_on_look_id", using: :btree
   add_index "choices", ["user_id"], name: "index_choices_on_user_id", using: :btree
 
+  create_table "contacts", force: :cascade do |t|
+    t.string   "name"
+    t.text     "subject"
+    t.string   "email"
+    t.text     "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "likes", force: :cascade do |t|
     t.integer  "product_id"
     t.datetime "created_at", null: false
@@ -43,7 +52,6 @@ ActiveRecord::Schema.define(version: 20160304113024) do
     t.integer  "user_id"
   end
 
-  add_index "likes", ["product_id"], name: "index_likes_on_product_id", using: :btree
   add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
 
   create_table "looks", force: :cascade do |t|
@@ -64,16 +72,15 @@ ActiveRecord::Schema.define(version: 20160304113024) do
   add_index "offers", ["product_id"], name: "index_offers_on_product_id", using: :btree
 
   create_table "products", force: :cascade do |t|
-    t.integer  "brand_id"
     t.string   "title"
     t.text     "description"
     t.string   "size"
     t.string   "color"
-    t.string   "category"
-    t.string   "ean"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "brand"
+    t.string   "ean"
+    t.integer  "brand_id"
+    t.string   "category"
     t.string   "image"
     t.string   "link"
     t.string   "price"
@@ -101,7 +108,6 @@ ActiveRecord::Schema.define(version: 20160304113024) do
 
   add_foreign_key "choices", "looks"
   add_foreign_key "choices", "users"
-  add_foreign_key "likes", "products"
   add_foreign_key "likes", "users"
   add_foreign_key "offers", "products"
   add_foreign_key "products", "brands"

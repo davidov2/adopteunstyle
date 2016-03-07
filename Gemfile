@@ -17,8 +17,11 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 
+
+
 group :development do
   gem 'faker'
+  gem 'letter_opener'
 end
 
 group :development, :test do
