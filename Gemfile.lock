@@ -36,6 +36,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.4.0)
     arel (6.0.3)
     autoprefixer-rails (6.3.3.1)
       execjs
@@ -84,6 +85,10 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.3)
     jwt (1.5.1)
+    launchy (2.4.3)
+      addressable (~> 2.3)
+    letter_opener (1.4.1)
+      launchy (~> 2.2)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -205,7 +210,11 @@ DEPENDENCIES
   font-awesome-sass
   jbuilder (~> 2.0)
   jquery-rails
+<<<<<<< HEAD
   omniauth-facebook
+=======
+  letter_opener
+>>>>>>> 14de1f0a369db06bc6c99853cc5f303a3323c0ea
   pg
   pry-byebug
   pry-rails

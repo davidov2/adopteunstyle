@@ -18,8 +18,11 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'omniauth-facebook'
 
+
+
 group :development do
   gem 'faker'
+  gem 'letter_opener'
 end
 
 group :development, :test do
