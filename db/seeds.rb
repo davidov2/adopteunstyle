@@ -70,15 +70,16 @@ user1 = User.first_or_create!(email: "admin@admin.com", password: "12345678")
 
 # Seed Look
 Look.destroy_all
-look1 = Look.create!(id: 0, name: "BUSINESS Présentable en toutes circonstances")
-Look.create!(id: 1, name: "CREATEURS Les dernières nouveautés des designers")
-Look.create!(id: 2, name: "DENIM Décontracté et jeans basiques")
-Look.create!(id: 3, name: "LUXE Hautes gammes")
-Look.create!(id: 4, name: "NAUTIQUE Look maritime")
-Look.create!(id: 5, name: "ROCK Look branché pour rockers urbains")
-Look.create!(id: 6, name: "SPORT Look sportif")
-Look.create!(id: 7, name: "STREETWEAR Décontracté urbain")
-Look.create!(id: 8, name: "SURFWEAR Look on the beach..")
+look1 = Look.create!(id: 0, name: "BUSINESS Présentable en toutes circonstances", photo: "look-9.png")
+Look.create!(id: 1, name: "CREATEURS Les dernières nouveautés designers", photo: "look-9.png")
+Look.create!(id: 2, name: "DENIM Décontracté et jeans basiques", photo: "look-9.png")
+Look.create!(id: 3, name: "LUXE Hautes gammes", photo: "look-9.png")
+Look.create!(id: 4, name: "NAUTIQUE Look maritime", photo: "look-9.png")
+Look.create!(id: 5, name: "ROCK Look branché pour rockers urbains", photo: "look-9.png")
+Look.create!(id: 6, name: "SPORT Look sportif" photo: "look-9.png")
+Look.create!(id: 7, name: "STREETWEAR Décontracté urbain" photo: "look-9.png")
+Look.create!(id: 8, name: "SURFWEAR Look on the beach.." photo: "look-9.png")
+Look.create!(id: 9, name: "Tous les looks" photo: "look-9.png")
 
 # Seed Choice
 choice1 = Choice.first_or_create!(user: user1, look: look1)

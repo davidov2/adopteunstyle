@@ -210,11 +210,8 @@ DEPENDENCIES
   font-awesome-sass
   jbuilder (~> 2.0)
   jquery-rails
-<<<<<<< HEAD
-  omniauth-facebook
-=======
   letter_opener
->>>>>>> 14de1f0a369db06bc6c99853cc5f303a3323c0ea
+  omniauth-facebook
   pg
   pry-byebug
   pry-rails
