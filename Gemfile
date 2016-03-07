@@ -16,7 +16,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
-
+gem 'activeadmin', github: 'activeadmin'
 
 
 group :development do

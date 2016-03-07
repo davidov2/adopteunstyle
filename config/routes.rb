@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   resources :contacts, only: :create
 
   devise_for :users
   root to: 'pages#home'
+
 
   resources :looks
 
