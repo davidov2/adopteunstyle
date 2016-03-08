@@ -1,30 +1,47 @@
-<h3>Sélectionnez un ou plusieurs looks :</h3>
 <div class="padded">
+
+<h3>Sélectionnez un ou plusieurs looks :</h3>
+
   <div class="container">
-    <%= form_tag("/products/search", method: "post") do %>
     <div class="row">
-        <% Look.all.each do |l| %>
-        <div class="look-image-col col-xs-1 col-md-3 col-lg-2 padded">
-          <div class="look-image" id="look-<%= l.id %>">
-            <%= check_box('look', l.id) %>
-          </div>
-          <p><%= l.name %></p>
+    <%Look.all.each do |look| %>
+      <div class="col-xs-12 col-sm-4 col-md-3">
+        <div class="card-look" >
+            <div class="card-name"><%= look.name %> </div>
+            <div class="card-filter" style="background-image: url('<%= image_path look.photo %>') ">
+            </div>
+            <div class="card-check hide">
+              <i class="fa fa-check"></i>
+            </div>
+
         </div>
-        <% end %>
+      </div>
+      <%end %>
     </div>
-    <center>
-      <input type="submit" name="submit" value="Voir les produits" class="btn btn-primary">
-    </center>
-    <% end %>
   </div>
+
+  <div class="text-center">
+    <%= link_to "Rechercher", products_path, class: "btn btn-primary" %>
+  </div>
+
+
 </div>
+
+
 <% content_for :after_js do %>
+
 <script>
   $(function(){
-    $('.look-image').click(function() {
-        var cb = $(this).children("input");
-        cb.prop("checked", !cb.prop("checked"));
-    });                 
+    $('.card-look').click(function() {
+      $(this).children(".card-check").toggleClass('hide');
+    });
+
+    var looks = function(){
+      return "test"
+    }
   });
+
+
 </script>
+
 <% end %>
