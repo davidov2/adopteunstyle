@@ -3,7 +3,7 @@
 <h3>Sélectionnez un ou plusieurs looks :</h3>
 
 
-  <%= form_tag products_search_path do %>
+  <%= form_tag products_search_path, method: :get do %>
 
   <div class="container">
     <div class="row">
@@ -13,10 +13,10 @@
             <div class="card-name"><%= look.name %> </div>
             <div class="card-filter" style="background-image: url('<%= image_path look.photo %>') ">
             </div>
-            <div class="card-check hide">
+            <div class="card-check <%= 'hide' unless @looks_selected.include? look.id.to_s %>">
               <i class="fa fa-check"></i>
             </div>
-            <input type="hidden" name="looks[<%= look.id.to_s %>]" value="0">
+            <input type="hidden" name="looks[<%= look.id.to_s %>]" value="<%= @looks_selected.include?(look.id.to_s) ? '1' : '0' %>">
         </div>
       </div>
       <%end %>
