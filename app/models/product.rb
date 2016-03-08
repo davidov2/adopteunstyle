@@ -10,10 +10,12 @@ class Product < ActiveRecord::Base
   end
 
   def title_short
-    self.title.split(":")[0]
+    self.title.split(":")[0] unless self.title.nil?
   end
 
-
+  def best_offer
+    self.offers.min_by{ |offer| offer.price }
+  end
 
 
 end

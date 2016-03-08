@@ -2,15 +2,19 @@ require "Nokogiri"
 require "open-uri"
 
 
-class UnkutAdapter < GenericAdapter
+class EffiliationAdapter < GenericAdapter
 
   def open_feed(url)
     data = Nokogiri::XML(open(url))
     docs = data.xpath('//products/product')
   end
 
+  def title(input)
+    data_from_path(input, "name")
+  end
+
   def ean(input)
-    data_from_path(input, "ean")
+    data_from_path(input, "upc")
   end
 
   def image(input)
@@ -18,7 +22,7 @@ class UnkutAdapter < GenericAdapter
   end
 
   def link(input)
-    data_from_path(input, "url_produit")
+    data_from_path(input, "url_product")
   end
 
   def description(input)
