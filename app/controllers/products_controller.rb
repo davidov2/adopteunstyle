@@ -11,9 +11,9 @@ class ProductsController < ApplicationController
   end
 
   def search
-    looks_list = params[:look].reject{|k,v| v == "0"}.keys
-    brands = Brand.includes(:look).where(look: looks_list)
-    @products = Product.where(brand: brands)
+    looks = params[:looks].reject{|k,v| v == "0"}.keys
+    brands = Brand.includes(:look).where(look: looks)
+    @products = Product.includes(:brand).where(brand: brands)
     @categories = Product.select(:category).map(&:category).uniq || []
     @colors = Product.select(:color).map(&:color).uniq
 

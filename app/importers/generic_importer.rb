@@ -72,7 +72,7 @@ class GenericImporter
     p.color = attributes[:color]
     p.title = attributes[:title]
     p.category = attributes[:category]
-    p.brand = Brand.first_or_create(name: attributes[:brand])
+    p.brand = Brand.where(name: attributes[:brand]).first_or_create(name: attributes[:brand])
     p.offers.build(price: attributes[:price], supplier: @feed.supplier, link: attributes[:link], size: attributes[:size] )
     saveProduct(p)
   end

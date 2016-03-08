@@ -57,7 +57,9 @@ Product.destroy_all
 # end
 
 # Seed User
-user1 = User.first_or_create!(email: "admin@admin.com", password: "12345678", admin: true)
+
+user1 = User.first_or_create!(email: 'admin@admin.com', password: '12345678', admin: true)
+>>>>>>> d0451887335e9a1f962a6a2226c803e26b916596
 
 # Seed Look
 Look.destroy_all
@@ -86,17 +88,6 @@ Look.create!( name: "TOUS", photo:"looks/look-all.png")
 
 # Seed Choice
 choice1 = Choice.first_or_create!(user: user1, look: look1)
-
-# Seed Brand
-10.times do |n|
-  puts n
-  Brand.first_or_create!(name: 'Marque ' << n.to_s, description:'Description de la marque ' << n.to_s)
-end
-
-# Association de la marque au premier look (pour le moment)
-b = Brand.first
-b.look = Look.first
-b.save!
 
 =begin
 # Seed Product
