@@ -8,8 +8,8 @@
     <div class="row">
       <div class="col-xs-12 col-md-6">
 
-      <div class="border-gray">
-          <%= image_tag @product.image %>
+      <div class="border-gray text-center ">
+          <%= image_tag @product.image, class: "full" %>
         </div>
       </div>
 
@@ -17,22 +17,16 @@
             <h4><%= @product.title %></h4>
             <p><%= @product.description %></p>
 
-            <p>Prix : <%= @product.price %>€</p>
+            <% @product.offers.each do |offer|%>
+              <p>Prix : <%= offer.price %>€</p>
+              <p>Supplier : <%= offer.supplier %></p>
+              <p>Tailles disponibles : <%= offer.size %> </p>
 
-            <p>Tailles disponibles :</p>
-
-            <ul class="list-inline">
-              <% @product.size_array.each do |size| %>
-                <li class="card-size">
-                  <%= size %>
-                </li>
-              <%end%>
-
-            </ul>
+            <% end %>
 
 
-            <%= link_to "Acheter", @product.link, :class => "btn btn-danger" %>
 
+            <%= link_to "Acheter", @product.best_offer.link, target: "blank", :class => "btn btn-danger" %>
           </div>
 
         </div>
