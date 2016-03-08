@@ -11,9 +11,6 @@ class User < ActiveRecord::Base
 
   has_many :choices, dependent: :destroy
   has_many :likes, dependent: :destroy
-end
-
-
 
   def self.find_for_facebook_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -28,3 +25,5 @@ end
       user.token_expiry = Time.at(auth.credentials.expires_at)
     end
   end
+
+end
