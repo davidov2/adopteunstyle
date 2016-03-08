@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 20160307183757) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "photo"
   end
 
   create_table "offers", force: :cascade do |t|
@@ -124,6 +125,7 @@ ActiveRecord::Schema.define(version: 20160307183757) do
     t.integer  "brand_id"
     t.string   "category"
     t.string   "image"
+    t.string   "price"
   end
 
   add_index "products", ["brand_id"], name: "index_products_on_brand_id", using: :btree
@@ -141,6 +143,7 @@ ActiveRecord::Schema.define(version: 20160307183757) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+    t.boolean  "admin",                  default: false, null: false
     t.string   "provider"
     t.string   "uid"
     t.string   "picture"
@@ -148,7 +151,6 @@ ActiveRecord::Schema.define(version: 20160307183757) do
     t.string   "last_name"
     t.string   "token"
     t.datetime "token_expiry"
-    t.boolean  "admin",                  default: false, null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
