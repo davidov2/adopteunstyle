@@ -2,21 +2,12 @@ require 'open-uri'
 
 Feed.destroy_all
 
-Feed.create!(supplier: "tradedoubler", url: 'http://pf.tradedoubler.com/export/export?myFeed=14569274972813150&myFormat=14569262592813150')
-Feed.create!(supplier: "unkut", url: 'http://feeds.effiliation.com/myformat/13248336/ean')
+Feed.create!(supplier: "Hugo boss", adapter: "tradedoubler", url: 'https://gist.githubusercontent.com/michael13013/a5d0ff98977285c095b9/raw/b1a160ee885fe6e0f028e62230e2fabedffcc0ad/tradedoubler.xml')
+Feed.create!(supplier: "unkut", adapter: "effiliation", url: 'https://gist.githubusercontent.com/michael13013/8fb8fa84c75d1e95d5f0/raw/cb06cf917aaa4fe38b73b7e0a601a500a927c1c6/unkut.xml')
+# Feed.create!(supplier: "carnetdevol", adapter: "effiliation", url: 'http://feeds.effiliation.com/myformat/13421676/ean')
+
 
 Product.destroy_all
-
-tradedoubler_category_id_to_category_name = {'170' => 'Veste'}
-
-supplier = Array.new
-
-# Add a new supplier
-supplier.push({
-  name: 'Hugo Boss',
-  url: 'http://pf.tradedoubler.com/export/export?myFeed=14569274972813150&myFormat=14569262592813150',
-  feed_type: 'tradedoubler'
-})
 
 # Un autre supplier (pas encore utilisé pour le moment)
 # supplier.push({
