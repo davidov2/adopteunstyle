@@ -39,7 +39,7 @@ class GenericImporter
 
 
   def load_adapter(feed)
-    adapter_prefix = feed.supplier.capitalize
+    adapter_prefix = feed.adapter.capitalize
     adapter = Object.const_get("#{adapter_prefix}Adapter")
     adapter.new
   end
@@ -55,10 +55,10 @@ class GenericImporter
   end
 
   def updateProduct(p, attributes)
-    p.offers.where(supplier: @feed.supplier).each do |o|
+    p.offers.where(supplier: @feed.supplier, size:attributes[:size] ).each do |o|
       o.destroy!
    end
-    p.offers.build(supplier: @feed.supplier, price: attributes[:price])
+    p.offers.build(supplier: @feed.supplier, price: attributes[:price], link: attributes[:link], size: attributes[:size])
 
     saveProduct(p)
 
@@ -68,12 +68,12 @@ class GenericImporter
     p = Product.new
     p.ean = attributes[:ean]
     p.description = attributes[:description]
-    p.link = attributes[:link]
     p.image = attributes[:image]
     p.color = attributes[:color]
+    p.title = attributes[:title]
     p.category = attributes[:category]
     p.brand = Brand.first_or_create(name: attributes[:brand])
-    p.offers.build(price: attributes[:price], supplier: @feed.supplier )
+    p.offers.build(price: attributes[:price], supplier: @feed.supplier, link: attributes[:link], size: attributes[:size] )
     saveProduct(p)
   end
 
