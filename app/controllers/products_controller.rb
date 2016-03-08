@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
   end
 
   def search
+    session['search_params'] = params
     looks = params[:looks].reject{|k,v| v == "0"}.keys
     brands = Brand.includes(:look).where(look: looks)
     @products = Product.includes(:brand).where(brand: brands)

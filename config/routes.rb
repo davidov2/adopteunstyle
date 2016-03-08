@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   resources :looks
 
   #root to: ''
+  get 'products/search', to: 'products#search', as: :products_search
   resources :products
-  post 'products/search', to: 'products#search', as: :products_search
 
 end
 
