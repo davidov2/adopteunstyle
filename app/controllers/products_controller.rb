@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
+
     @products = Product.all
     @categories = Product.select(:category).map(&:category).uniq || []
     @colors = Product.select(:color).map(&:color).uniq
@@ -17,7 +18,21 @@ class ProductsController < ApplicationController
     @products = Product.includes(:brand).where(brand: brands)
     @categories = Product.select(:category).map(&:category).uniq || []
     @colors = Product.select(:color).map(&:color).uniq
+    respond_to do |format|
+      format.html { render action: :index }
+    end
+  end
 
+  def search2
+    # ajouter search2 dans les routes
+    search = params[:query]
+    # recupere la recherche
+    # tu fais la recherche Product.search_by_title_and_description
+    # @products
+    @products = Product.search_by_title_and_description(search)
+    @categories = Product.select(:category).map(&:category).uniq || []
+    @colors = Product.select(:color).map(&:color).uniq
+    # render index
     respond_to do |format|
       format.html { render action: :index }
     end
