@@ -87,12 +87,13 @@ ActiveRecord::Schema.define(version: 20160307183757) do
   add_index "imports", ["feed_id"], name: "index_imports_on_feed_id", using: :btree
 
   create_table "likes", force: :cascade do |t|
-    t.integer  "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.integer  "product_id"
   end
 
+  add_index "likes", ["product_id"], name: "index_likes_on_product_id", using: :btree
   add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
 
   create_table "looks", force: :cascade do |t|
@@ -100,6 +101,7 @@ ActiveRecord::Schema.define(version: 20160307183757) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "photo"
   end
 
   create_table "offers", force: :cascade do |t|
@@ -117,13 +119,16 @@ ActiveRecord::Schema.define(version: 20160307183757) do
   create_table "products", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
+    t.string   "price"
     t.string   "color"
+    t.string   "brand"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "ean"
     t.integer  "brand_id"
     t.string   "category"
     t.string   "image"
+    t.string   "price"
   end
 
   add_index "products", ["brand_id"], name: "index_products_on_brand_id", using: :btree
@@ -141,6 +146,7 @@ ActiveRecord::Schema.define(version: 20160307183757) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+    t.boolean  "admin",                  default: false, null: false
     t.string   "provider"
     t.string   "uid"
     t.string   "picture"
@@ -148,7 +154,6 @@ ActiveRecord::Schema.define(version: 20160307183757) do
     t.string   "last_name"
     t.string   "token"
     t.datetime "token_expiry"
-    t.boolean  "admin",                  default: false, null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -158,6 +163,7 @@ ActiveRecord::Schema.define(version: 20160307183757) do
   add_foreign_key "choices", "looks"
   add_foreign_key "choices", "users"
   add_foreign_key "imports", "feeds"
+  add_foreign_key "likes", "products"
   add_foreign_key "likes", "users"
   add_foreign_key "offers", "products"
   add_foreign_key "products", "brands"

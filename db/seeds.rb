@@ -2,10 +2,9 @@ require 'open-uri'
 
 Feed.destroy_all
 
-Feed.create!(supplier: "Hugo boss", adapter: "tradedoubler", url: 'https://gist.githubusercontent.com/michael13013/a5d0ff98977285c095b9/raw/b1a160ee885fe6e0f028e62230e2fabedffcc0ad/tradedoubler.xml')
-Feed.create!(supplier: "unkut", adapter: "effiliation", url: 'https://gist.githubusercontent.com/michael13013/8fb8fa84c75d1e95d5f0/raw/cb06cf917aaa4fe38b73b7e0a601a500a927c1c6/unkut.xml')
+Feed.create!(supplier: "Hugo Boss", adapter: "tradedoubler", url: 'https://gist.githubusercontent.com/michael13013/a5d0ff98977285c095b9/raw/b1a160ee885fe6e0f028e62230e2fabedffcc0ad/tradedoubler.xml')
+Feed.create!(supplier: "Ünkut", adapter: "effiliation", url: 'https://gist.githubusercontent.com/michael13013/8fb8fa84c75d1e95d5f0/raw/cb06cf917aaa4fe38b73b7e0a601a500a927c1c6/unkut.xml')
 # Feed.create!(supplier: "carnetdevol", adapter: "effiliation", url: 'http://feeds.effiliation.com/myformat/13421676/ean')
-
 
 Product.destroy_all
 
@@ -57,6 +56,7 @@ Product.destroy_all
 # end
 
 # Seed User
+
 user1 = User.first_or_create!(email: 'admin@admin.com', password: '12345678', admin: true)
 
 # Seed Look
@@ -73,15 +73,15 @@ Look.destroy_all
 # Look.create!( name: "Tout les looks", photo:"looks/look-all.png")
 
 look1 = Look.create!( name: "BUSINESS", photo:"looks/look-9.png")
-Look.create!( name: "CREATEURS", photo:"looks/look-9.png")
-Look.create!( name: "DENIM", photo:"looks/look-9.png")
-Look.create!( name: "LUXE", photo:"looks/look-9.png")
-Look.create!( name: "NAUTIQUE", photo:"looks/look-9.png")
-Look.create!( name: "ROCK", photo:"looks/look-9.png")
-Look.create!( name: "SPORT", photo: "looks/look-9.png")
-Look.create!( name: "STREETWEAR", photo:"looks/look-9.png")
-Look.create!( name: "SURFWEAR", photo:"looks/look-9.png")
-Look.create!( name: "TOUS", photo:"looks/look-all.png")
+Look.create!( name: "DESIGNERS", photo:"looks/look-2.png")
+Look.create!( name: "DENIM", photo:"looks/look-3.png")
+Look.create!( name: "LUXE", photo:"looks/look-6.png")
+Look.create!( name: "NAUTIQUE", photo:"looks/look-0.png")
+Look.create!( name: "ROCK", photo:"looks/look-7.png")
+Look.create!( name: "SPORT", photo: "looks/look-8.jpg")
+Look.create!( name: "STREETWEAR", photo:"looks/look-1.jpeg")
+Look.create!( name: "SURFWEAR", photo:"looks/look-4.jpg")
+Look.create!( name: "TOUS", photo:"looks/look-all.jpg")
 
 
 # Seed Choice

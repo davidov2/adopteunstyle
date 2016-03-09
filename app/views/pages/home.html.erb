@@ -158,10 +158,10 @@
 
 
     <%= simple_form_for @contact do |f| %>
-      <%= f.input :name, placeholder: "name", label: false %>
-      <%= f.input :email, placeholder: "email", label: false %>
-      <%= f.input :subject, placeholder: "subject", label: false %>
-      <%= f.input :message, placeholder: "message", label: false, :input_html => {:rows => 10} %>
+      <%= f.input :name, placeholder: "Votre Nom", label: false %>
+      <%= f.input :email, placeholder: "Votre Email", label: false %>
+      <%= f.input :subject, placeholder: "Objet de votre Message", label: false %>
+      <%= f.input :message, placeholder: "Votre Message", label: false, :input_html => {:rows => 10} %>
       <%= f.button :submit, class: "btn btn-primary" %>
     <% end %>
 

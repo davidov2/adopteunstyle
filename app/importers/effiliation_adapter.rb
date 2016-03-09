@@ -45,6 +45,10 @@ class EffiliationAdapter < GenericAdapter
     data_from_path(input, "brand")
   end
 
+  def category(input)
+    data_from_path(input, "type")
+  end
+
   private
 
   def data_from_path(object, path)

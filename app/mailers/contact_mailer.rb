@@ -16,4 +16,8 @@ class ContactMailer < ApplicationMailer
       subject:  "Subject #{@subject} de #{@name}!"
     )
   end
+
+  def welcome
+  end
+
 end
