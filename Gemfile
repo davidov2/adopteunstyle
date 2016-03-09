@@ -19,7 +19,7 @@ gem 'autoprefixer-rails'
 gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin.git'
 gem 'pg_search'
 gem 'omniauth-facebook'
-
+gem 'nokogiri'
 
 
 group :development do
