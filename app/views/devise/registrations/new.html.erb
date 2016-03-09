@@ -3,6 +3,7 @@
     <div class="row">
       <div class="col-xs-offset-4 col-xs-4 col-xs-offset-4">
         <h2>Nouveau ?<br>Créez votre compte !</h2>
+        <p>Gardez trace de vos coups de coeurs et partagez-les!</p>
 
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.error_notification %>
@@ -14,7 +15,7 @@
           </div>
 
           <div class="form-actions">
-            <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
+            <%= f.button :submit, "Se connecter", class: "btn btn-primary" %>
           </div>
         <% end %>
 
