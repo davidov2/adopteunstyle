@@ -19,8 +19,7 @@ gem 'autoprefixer-rails'
 gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin.git'
 gem 'pg_search'
 gem 'omniauth-facebook'
-gem 'nokogiri'
-
+gem 'nokogiri', '~> 1.6', '>= 1.6.6.2'
 
 group :development do
   gem 'faker'
