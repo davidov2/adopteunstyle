@@ -14,6 +14,11 @@
             <div class="card-name"><%= look.name %> </div>
             <div class="card-filter" style="background-image: url('<%= image_path look.photo %>') ">
             </div>
+            <div class="card-hover hide">
+          <!--     <p>Je suis une super look qui déchire </p> -->
+              <p><%= look.description %></p>
+            </div>
+
             <div class="card-check <%= 'hide' unless @looks_selected.include? look.id.to_s %>">
               <i class="fa fa-check"></i>
             </div>
@@ -43,6 +48,15 @@
       var el = $(this).children('input[type=hidden]');
       el.val(el.val() == 0 ? 1 : 0);
     });
+
+    $(".card-look").on("mouseover", function() {
+      $(this).children(".card-hover").removeClass('hide');
+    })
+
+    $(".card-look").on("mouseout", function() {
+      $(this).children(".card-hover").addClass('hide');
+    })
+
   });
 </script>
 
