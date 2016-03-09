@@ -271,6 +271,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   letter_opener
+  nokogiri
   omniauth-facebook
   pg
   pg_search
