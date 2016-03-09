@@ -1,12 +1,13 @@
 <div class="padded">
 
-<h3>Sélectionnez un ou plusieurs looks :</h3>
+
 
 
   <%= form_tag products_search_path do %>
 
   <div class="container">
     <div class="row">
+    <h3>Sélectionnez un ou plusieurs looks :</h3>
     <%Look.all.each do |look| %>
       <div class="col-xs-12 col-sm-4 col-md-3">
         <div class="card-look" >

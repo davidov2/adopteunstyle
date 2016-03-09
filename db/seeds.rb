@@ -78,10 +78,10 @@ Look.create!( name: "DENIM", photo:"looks/look-3.png")
 Look.create!( name: "LUXE", photo:"looks/look-6.png")
 Look.create!( name: "NAUTIQUE", photo:"looks/look-0.png")
 Look.create!( name: "ROCK", photo:"looks/look-7.png")
-Look.create!( name: "SPORT", photo: "looks/look-8.png")
-Look.create!( name: "STREETWEAR", photo:"looks/look-8.png")
-Look.create!( name: "SURFWEAR", photo:"looks/look-8.png")
-Look.create!( name: "TOUS", photo:"looks/look-all.png")
+Look.create!( name: "SPORT", photo: "looks/look-8.jpg")
+Look.create!( name: "STREETWEAR", photo:"looks/look-1.jpeg")
+Look.create!( name: "SURFWEAR", photo:"looks/look-4.jpg")
+Look.create!( name: "TOUS", photo:"looks/look-all.jpg")
 
 
 # Seed Choice
