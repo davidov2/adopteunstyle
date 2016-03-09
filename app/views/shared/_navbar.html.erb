@@ -7,7 +7,11 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-
+  <!-- formulaire de recherche par pg_search -->
+      <%= form_tag search2_products_path, method: "get" do %>
+        <%= text_field_tag :query, params[:query], :class => "search-box"%>
+        <%= submit_tag "GO", name: nil, :class => "btn btn-search"%>
+      <% end%>
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
@@ -18,6 +22,7 @@
           <i class="fa fa-envelope-o"></i>
         </div>
       <% end %>
+
 
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
