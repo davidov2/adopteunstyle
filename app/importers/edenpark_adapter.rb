@@ -13,12 +13,18 @@ class EdenparkAdapter < GenericAdapter
     return false if self.image(input).include?("placeholder")
     return false if self.image(input).nil?
     return false if self.ean(input).empty?
+    return false unless self.gender(input).include?("Homme")
     return true
   end
 
   def title(input)
     data_from_path(input, "name")
   end
+
+  def gender(input)
+    data_from_path(input, "gender")
+  end
+
 
   def ean(input)
     data_from_path(input, "isbn")

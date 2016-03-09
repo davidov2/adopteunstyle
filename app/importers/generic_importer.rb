@@ -5,7 +5,7 @@ class GenericImporter
     @import = Import.create(feed: feed)
     @error = 0
     @success = 0
-    @invalid = 0
+    @rejected = 0
   end
 
   def import
@@ -17,8 +17,8 @@ class GenericImporter
         if adapter.valid?(product)
           addProduct(attributes)
         else
-          puts "Product: #{attributes} is invalid"
-          @invalid += 1
+          puts "Product: #{attributes[:ean]} is invalid"
+          @rejected += 1
         end
       end
     end
@@ -36,10 +36,10 @@ class GenericImporter
       @import.message = e
       @import.update(status: :error)
     end
-    puts "Feed #{@feed.supplier} : success => #{@success}, errors => #{@error},  invalid => #{@invalid} "
-    total = @success+@error+@invalid
+    puts "Feed #{@feed.supplier} : success => #{@success}, errors => #{@error},  rejected => #{@rejected} "
+    total = @success+@error+@rejected
     success_rate = total==0 ? 0 : @success.fdiv(total)
-    @import.update(finished_at: Time.now, total: total, success_rate: success_rate, invalid: @invalid )
+    @import.update(finished_at: Time.now, total: total, success_rate: success_rate, rejected: @rejected )
   end
 
   def load_adapter(feed)
