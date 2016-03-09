@@ -15,7 +15,12 @@ Rails.application.routes.draw do
   get 'products/search', to: 'products#search', as: :products_search
   resources :products
 
-end
+
+
+
+
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
