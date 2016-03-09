@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
 
     search = params[:query]
 
-    @products = Product.search_by_title_and_description(search)
+    @products = Product.search_by_title_and_description(search).page(params[:page]).per(30)
 
     # looks = params[:looks].reject{|k,v| v == "0"}.keys
     # brands = Brand.includes(:look).where(look: looks)
