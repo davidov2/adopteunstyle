@@ -8,8 +8,8 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
   <!-- formulaire de recherche par pg_search -->
-      <%= form_tag products_search_path, method: "get" do %>
-        <%= text_field_tag :query, params[:query], :class => "search-box"%>
+      <%= form_tag products_search_path, class: "navbar-wagon-search",  method: "get" do %>
+        <%= text_field_tag :query, params[:query],placeholder: "Recherchez un article", :class => "search-box"%>
         <%= submit_tag "GO", name: nil, :class => "btn btn-search"%>
       <% end%>
 
