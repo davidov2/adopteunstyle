@@ -5,16 +5,21 @@ class GenericImporter
     @import = Import.create(feed: feed)
     @error = 0
     @success = 0
+    @rejected = 0
   end
-
 
   def import
     adapter = load_adapter(@feed)
     importation do
       docs = adapter.open_feed(@feed.url)
-      docs.each do |line|
-        attributes = adapter.parse(line)
-        addProduct(attributes)
+      docs.each do |product|
+        attributes = adapter.parse(product)
+        if adapter.valid?(product)
+          addProduct(attributes)
+        else
+          puts "Product: #{attributes[:ean]} is invalid"
+          @rejected += 1
+        end
       end
     end
   end
@@ -31,12 +36,11 @@ class GenericImporter
       @import.message = e
       @import.update(status: :error)
     end
-    puts "Produits : success => #{@success}, errors => #{@error}"
-    total = @success+@error
+    puts "Feed #{@feed.supplier} : success => #{@success}, errors => #{@error},  rejected => #{@rejected} "
+    total = @success+@error+@rejected
     success_rate = total==0 ? 0 : @success.fdiv(total)
-    @import.update(finished_at: Time.now, total: total, success_rate: success_rate)
+    @import.update(finished_at: Time.now, total: total, success_rate: success_rate, rejected: @rejected )
   end
-
 
   def load_adapter(feed)
     adapter_prefix = feed.adapter.capitalize
@@ -61,7 +65,6 @@ class GenericImporter
     p.offers.build(supplier: @feed.supplier, price: attributes[:price], link: attributes[:link], size: attributes[:size])
 
     saveProduct(p)
-
   end
 
   def createProduct(attributes)

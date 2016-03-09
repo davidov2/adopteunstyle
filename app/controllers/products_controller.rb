@@ -1,8 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
-
-    @products = Product.all
+    @products = Product.all.paginate(page: params[:page], per_page: 30)
     @categories = Product.select(:category).map(&:category).uniq || []
     @colors = Product.select(:color).map(&:color).uniq
   end
@@ -27,8 +26,6 @@ class ProductsController < ApplicationController
       format.html { render action: :index }
     end
   end
-
-
 
 end
 

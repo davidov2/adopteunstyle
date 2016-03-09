@@ -3,30 +3,22 @@
   <h1 class="text-center">Voici les articles de votre look préféré :</h1>
   <h5 class="text-center"><%= Product.count %> articles trouvés grâce à <%= Brand.count %> marques</h5>
 
-
-
-
     <div class="sidebar-wrapper">
       <div class="sidebar-nav">
-          <h4 class="text-center">Filtrez par categories</h4>
+        <h4 class="text-center">Filtrez par categories</h4>
           <ul>
           <% @categories.each do |category| %>
-
             <li><a href="#"><%= category %></a></li>
-
             <% end %>
           </ul>
-          <h4 class="text-center">Filtrez par couleurs</h4>
+        <h4 class="text-center">Filtrez par couleurs</h4>
           <ul>
           <% @colors.each do |color| %>
             <li><a href="#"><%= color %></a></li>
-
             <% end %>
           </ul>
       </div>
     </div>
-
-
 
   <div class="page-content-wrapper">
     <div class="container container-full">
@@ -48,6 +40,9 @@
               </div>
             </div>
           <% end %>
+      </div>
+      <div class="flickr_pagination">
+        <%= will_paginate @products %>
       </div>
     </div>
   </div>

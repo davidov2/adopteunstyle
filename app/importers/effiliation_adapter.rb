@@ -9,6 +9,11 @@ class EffiliationAdapter < GenericAdapter
     docs = data.xpath('//products/product')
   end
 
+  def valid?(input)
+    return false if self.image(input).include?("placeholder")
+    return true
+  end
+
   def title(input)
     data_from_path(input, "name")
   end
