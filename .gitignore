@@ -6,6 +6,7 @@ tmp/*
 .DS_Store
 public/assets
 .idea
+Gemfile.lock
 
 # Ignore application configuration
 /config/application.yml
