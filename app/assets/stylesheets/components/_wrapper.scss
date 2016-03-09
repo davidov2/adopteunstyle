@@ -22,7 +22,7 @@
 }
 
 .sidebar-wrapper{
-  margin-left: -250px;
+  margin-left: -240px;
   left: 250px;
   width: 250px;
   background: #CCC;
@@ -32,6 +32,8 @@
   overflow-y: auto;
   z-index: 1000;
   transition: all 0.4s ease 0s;
+  border-radius: 5px;
+  border: 1px solid black;
 }
 
 .page-content-wrapper {
