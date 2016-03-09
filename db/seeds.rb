@@ -61,7 +61,7 @@ Product.destroy_all
 # Seed User
 
 user1 = User.first_or_create!(email: 'admin@admin.com', password: '12345678', admin: true)
-
+user1.save
 # Seed Look
 Look.destroy_all
 
