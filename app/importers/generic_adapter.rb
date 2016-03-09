@@ -5,6 +5,10 @@ class GenericAdapter
     raise NoMethodError, "You must defined how to open the document"
   end
 
+  def valid?(object)
+    true
+  end
+
   def ean(object)
     ""
   end

@@ -2,7 +2,7 @@ require "Nokogiri"
 require "open-uri"
 
 
-class EffiliationAdapter < GenericAdapter
+class CarnetdevolAdapter < GenericAdapter
 
   def open_feed(url)
     data = Nokogiri::XML(open(url))
@@ -11,6 +11,9 @@ class EffiliationAdapter < GenericAdapter
 
   def valid?(input)
     return false if self.image(input).include?("placeholder")
+    return false if self.image(input).nil?
+    return false if self.ean(input).empty?
+    return false unless self.gender(input).include?("Homme")
     return true
   end
 
@@ -18,8 +21,12 @@ class EffiliationAdapter < GenericAdapter
     data_from_path(input, "name")
   end
 
+  def gender(input)
+    data_from_path(input, "gender")
+  end
+
   def ean(input)
-    data_from_path(input, "upc")
+    data_from_path(input, "ean")
   end
 
   def image(input)
@@ -43,7 +50,7 @@ class EffiliationAdapter < GenericAdapter
   end
 
   def color(input)
-    data_from_path(input, "extras colour")
+    data_from_path(input, "color")
   end
 
   def brand(input)
@@ -63,6 +70,5 @@ class EffiliationAdapter < GenericAdapter
       return object.css(path).first.content.strip
     end
   end
-
 
 end

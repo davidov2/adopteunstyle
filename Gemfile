@@ -17,6 +17,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin.git'
+gem 'will_paginate', '~> 3.0.6'
 
 gem 'omniauth-facebook'
 

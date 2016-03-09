@@ -2,9 +2,10 @@ require 'open-uri'
 
 Feed.destroy_all
 
-Feed.create!(supplier: "Hugo Boss", adapter: "tradedoubler", url: 'https://gist.githubusercontent.com/michael13013/a5d0ff98977285c095b9/raw/b1a160ee885fe6e0f028e62230e2fabedffcc0ad/tradedoubler.xml')
-Feed.create!(supplier: "Ünkut", adapter: "effiliation", url: 'https://gist.githubusercontent.com/michael13013/8fb8fa84c75d1e95d5f0/raw/cb06cf917aaa4fe38b73b7e0a601a500a927c1c6/unkut.xml')
-# Feed.create!(supplier: "carnetdevol", adapter: "effiliation", url: 'http://feeds.effiliation.com/myformat/13421676/ean')
+#Feed.create!(supplier: "Hugo Boss", adapter: "tradedoubler", url: 'https://gist.githubusercontent.com/michael13013/a5d0ff98977285c095b9/raw/ab37bdef70f7eba32a8edf0cce15d939477ee753/tradedoubler.xml')
+#Feed.create!(supplier: "Ünkut", adapter: "effiliation", url: 'https://gist.githubusercontent.com/michael13013/8fb8fa84c75d1e95d5f0/raw/cba2026cba3bd414fcdb188d383b804ae1d06240/unkut.xml')
+#Feed.create!(supplier: "Carnet de Vol", adapter: "carnetdevol", url: 'https://gist.githubusercontent.com/michael13013/afb2c73b3ca237b34112/raw/211b47a5770b93ef47a5d95574afd09e29b245b8/carnet_de_vol.xml')
+Feed.create!(supplier: "Eden Park", adapter: "edenpark", url: 'http://feeds.effiliation.com/myformat/12310044')
 
 Product.destroy_all
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160307183757) do
+ActiveRecord::Schema.define(version: 20160309144105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20160307183757) do
     t.text     "message"
     t.integer  "total"
     t.float    "success_rate"
+    t.integer  "invalid"
   end
 
   add_index "imports", ["feed_id"], name: "index_imports_on_feed_id", using: :btree
@@ -125,7 +126,6 @@ ActiveRecord::Schema.define(version: 20160307183757) do
     t.integer  "brand_id"
     t.string   "category"
     t.string   "image"
-    t.string   "price"
   end
 
   add_index "products", ["brand_id"], name: "index_products_on_brand_id", using: :btree
@@ -143,7 +143,6 @@ ActiveRecord::Schema.define(version: 20160307183757) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
-    t.boolean  "admin",                  default: false, null: false
     t.string   "provider"
     t.string   "uid"
     t.string   "picture"
@@ -151,6 +150,7 @@ ActiveRecord::Schema.define(version: 20160307183757) do
     t.string   "last_name"
     t.string   "token"
     t.datetime "token_expiry"
+    t.boolean  "admin",                  default: false, null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
