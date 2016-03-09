@@ -73,15 +73,15 @@ Look.destroy_all
 # Look.create!( name: "Tout les looks", photo:"looks/look-all.png")
 
 look1 = Look.create!( name: "BUSINESS", photo:"looks/look-9.png")
-Look.create!( name: "CREATEURS", photo:"looks/look-9.png")
-Look.create!( name: "DENIM", photo:"looks/look-9.png")
-Look.create!( name: "LUXE", photo:"looks/look-9.png")
-Look.create!( name: "NAUTIQUE", photo:"looks/look-9.png")
-Look.create!( name: "ROCK", photo:"looks/look-9.png")
-Look.create!( name: "SPORT", photo: "looks/look-9.png")
-Look.create!( name: "STREETWEAR", photo:"looks/look-9.png")
-Look.create!( name: "SURFWEAR", photo:"looks/look-9.png")
-Look.create!( name: "TOUS", photo:"looks/look-all.png")
+Look.create!( name: "DESIGNERS", photo:"looks/look-2.png")
+Look.create!( name: "DENIM", photo:"looks/look-3.png")
+Look.create!( name: "LUXE", photo:"looks/look-6.png")
+Look.create!( name: "NAUTIQUE", photo:"looks/look-0.png")
+Look.create!( name: "ROCK", photo:"looks/look-7.png")
+Look.create!( name: "SPORT", photo: "looks/look-8.jpg")
+Look.create!( name: "STREETWEAR", photo:"looks/look-1.jpeg")
+Look.create!( name: "SURFWEAR", photo:"looks/look-4.jpg")
+Look.create!( name: "TOUS", photo:"looks/look-all.jpg")
 
 
 # Seed Choice
