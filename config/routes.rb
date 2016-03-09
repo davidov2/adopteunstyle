@@ -13,11 +13,11 @@ Rails.application.routes.draw do
 
   #root to: ''
   get 'products/search', to: 'products#search', as: :products_search
-  resources :products do
-    collection do
-      get "search2"
-    end
-  end
+  resources :products
+
+
+
+
 
   end
 
