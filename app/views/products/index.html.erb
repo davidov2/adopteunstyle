@@ -1,6 +1,11 @@
 
-<h1 class="text-center">Voici les articles de votre look préféré :</h1>
-<h5 class="text-center">Affichage de <%= @products.length %> articles sur <%= @total %> trouvés</h5>
+<% if @products.length != 0 %>
+
+    <h1 class="text-center">Voici les articles de votre look préféré :</h1>
+    <h5 class="text-center">Affichage de <%= @products.length %> articles sur <%= @total %> trouvés</h5>
+    <% else %>
+      <h1 class="titre-index text-center">Cet article n'existe pas</h1>
+ <% end %>
 
 
 
