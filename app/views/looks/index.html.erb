@@ -22,8 +22,7 @@
           <!--     <p>Je suis une super look qui déchire </p> -->
               <p><span><%= look.description %></span></p>
             </div>
-
-            <div class="card-check <%= 'hide' unless @looks_selected.include? look.id.to_s %>">
+            <div class="card-check <%= 'hide' unless @looks_selected.include?(look.id.to_s) %>">
               <i class="fa fa-check"></i>
             </div>
             <input type="hidden" name="looks[<%= look.id.to_s %>]" value="<%= @looks_selected.include?(look.id.to_s) ? '1' : '0' %>">
