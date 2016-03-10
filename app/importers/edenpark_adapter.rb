@@ -12,8 +12,8 @@ class EdenparkAdapter < GenericAdapter
   def valid?(input)
     return false if self.image(input).include?("placeholder")
     return false if self.image(input).nil?
-    return false if self.ean(input).empty?
-    return false unless self.gender(input).include?("Homme")
+    # return false if self.ean(input).empty?
+    return true unless self.gender(input).include?("Homme")
     return true
   end
 
@@ -22,9 +22,8 @@ class EdenparkAdapter < GenericAdapter
   end
 
   def gender(input)
-    data_from_path(input, "gender")
+    data_from_path(input, "merchant_store_name")
   end
-
 
   def ean(input)
     data_from_path(input, "isbn")
