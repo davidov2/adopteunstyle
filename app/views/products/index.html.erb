@@ -1,11 +1,13 @@
 
-<% if @products.length != 0 %>
 
-    <h1 class="text-center">Voici les articles de votre look préféré :</h1>
-    <h5 class="text-center">Affichage de <%= @products.length %> articles sur <%= @total %> trouvés</h5>
-    <% else %>
-      <h1 class="titre-index text-center">Cet article n'existe pas</h1>
- <% end %>
+    <div class="text-center">
+      <h1 >Voici les articles de votre look préféré :</h1>
+      <% @products.length > 0 %>
+          <h5 >Affichage de <%= @products.length %> articles sur <%= @total %> trouvés</h5>
+      <% else  %>
+          <h5 class="text-danger">Malheureusement aucune référence ne correspond à votre requête </h5>
+      <% end %>
+    </div>
 
 
 
@@ -106,25 +108,26 @@
 
 
   <div class="page-content-wrapper">
-    <div class="container container-full">
+    <div class="container">
       <div class="row">
-          <% @products.each do |p| %>
-            <div class="col-xs-12 col-md-4">
-              <div class="card-product">
-                  <%= image_tag p.image%>
-                  <div class="card-title">
-                    <%= p.title_short %>
-                  </div>
-                  <div class="card-price">
-                    <p><%= p.offers.first.price %>€</p>
-                  </div>
-                  <%= link_to product_path(p), class: "card-detail"  do %>
-                    <i class="fa fa-info-circle"> </i>
-                  <% end %>
-                <%= link_to "Voir l'offre chez #{p.best_offer.supplier}", p.best_offer.link,  class: "btn  btn-danger btn-block card-cta", target: "blank"%>
+
+            <% @products.each do |p| %>
+              <div class="col-xs-12 col-md-4">
+                <div class="card-product">
+                    <%= image_tag p.image%>
+                    <div class="card-title">
+                      <%= p.title_short %>
+                    </div>
+                    <div class="card-price">
+                      <p><%= p.offers.first.price %>€</p>
+                    </div>
+                    <%= link_to product_path(p), class: "card-detail"  do %>
+                      <i class="fa fa-info-circle"> </i>
+                    <% end %>
+                  <%= link_to "Voir l'offre chez #{p.best_offer.supplier}", p.best_offer.link,  class: "btn  btn-danger btn-block card-cta", target: "blank"%>
+                </div>
               </div>
-            </div>
-          <% end %>
+            <% end %>
       </div>
       <h4 class="text-center"><%= paginate @products %></h4>
 
