@@ -16,18 +16,12 @@
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
-      <!-- Notification -->
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
-        <div class="badge-container">
-          <i class="fa fa-envelope-o"></i>
-        </div>
-      <% end %>
 
 
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
-      <%= link_to destroy_user_session_path, class: "btn btn-danger btn-lg", method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t ".sign_out", default: "Se Déconnecter" %>
+      <%= link_to destroy_user_session_path, class: "btn btn-danger btn-lg navbar-wagon-button", method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t ".sign_out", default: "Déconnexion" %>
               <% end %>
       </div>
 
