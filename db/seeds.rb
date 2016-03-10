@@ -1,16 +1,12 @@
 require 'open-uri'
 
-
-
 Feed.destroy_all
-
 Feed.create!(supplier: "Hugo Boss", adapter: "tradedoubler", url: 'https://gist.githubusercontent.com/michael13013/a5d0ff98977285c095b9/raw/ab37bdef70f7eba32a8edf0cce15d939477ee753/tradedoubler.xml')
 Feed.create!(supplier: "Ünkut", adapter: "effiliation", url: 'https://gist.githubusercontent.com/michael13013/8fb8fa84c75d1e95d5f0/raw/cba2026cba3bd414fcdb188d383b804ae1d06240/unkut.xml')
 Feed.create!(supplier: "Carnet de Vol", adapter: "carnetdevol", url: 'https://gist.githubusercontent.com/michael13013/afb2c73b3ca237b34112/raw/211b47a5770b93ef47a5d95574afd09e29b245b8/carnet_de_vol.xml')
 Feed.create!(supplier: "Eden Park", adapter: "edenpark", url: 'https://gist.githubusercontent.com/michael13013/6cdac3427532572c27ce/raw/dd5b156cd991fce50ad4b1004e5170fa95553e9c/edenpark.xml')
 
-Product.destroy_all
-
+# Product.destroy_all
 # Un autre supplier (pas encore utilisé pour le moment)
 # supplier.push({
 #     name: 'Carnet de Vol',
@@ -64,7 +60,6 @@ user1 = User.first_or_create!(email: 'admin@admin.com', password: '12345678', ad
 user1.save
 # Seed Look
 Look.destroy_all
-
 look1 = Look.create!( name: "BUSINESS", description: "Présentable en toutes circonstances", photo:"looks/look-9.png")
 Look.create!( name: "DESIGNERS", description: "Les dernières nouveautés des créateurs", photo:"looks/look-2.png")
 Look.create!( name: "DENIM", description: "Décontracté et jeans basiques", photo:"looks/look-3.png")
