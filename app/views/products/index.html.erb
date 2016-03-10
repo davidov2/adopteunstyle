@@ -1,24 +1,102 @@
 
 <div class="wrapper">
   <h1 class="text-center">Voici les articles de votre look préféré :</h1>
-  <h5 class="text-center"><%= @products.length %> articles trouvés</h5>
+  <h5 class="text-center">Affichage de <%= @products.length %> articles sur <%= @total %> trouvés</h5>
 
     <div class="sidebar-wrapper">
       <div class="sidebar-nav">
-        <h4 class="text-center">Filtrez par categories</h4>
-          <ul>
-          <% @categories.each do |category| %>
-            <li><a href="#"><%= category %></a></li>
-            <% end %>
-          </ul>
-        <h4 class="text-center">Filtrez par couleurs</h4>
-          <ul>
-          <% @colors.each do |color| %>
-            <li><a href="#"><%= color %></a></li>
-            <% end %>
-          </ul>
+
+          <h4 class="text-center">Categories</h4>
+            <ul style = "list-style-type: none;">
+            <% @categories.each do |category| %>
+              <li>
+                <div class="link-sidebar">
+                <a href="<%= products_search_path(query: category) %>">
+                  <%= category %>
+                </a>
+                </div>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+
+
+      <div class="sidebar-wrapper wrapper-color-position">
+        <div class="sidebar-nav">
+          <h4 class="text-center">Couleurs</h4>
+            <ul style = "list-style-type: none;">
+            <% @colors.each do |color| %>
+              <li>
+              <div class="link-sidebar">
+              <a href="<%= products_search_path(query: color) %>">
+              <%= color %>
+              </a>
+              </div>
+              </li>
+              <% end %>
+            </ul>
       </div>
     </div>
+
+
+
+      <div class="sidebar-wrapper wrapper-size-position">
+        <div class="sidebar-nav">
+          <h4 class="text-center">Tailles</h4>
+            <ul style = "list-style-type: none;">
+              <li>
+                <div class="link-sidebar">
+                <a href="<%= products_search_path(size: 'S') %>">
+                S
+                </a>
+                </div>
+              </li>
+               <li>
+                <div class="link-sidebar">
+                <a href="<%= products_search_path(size: 'M') %>">
+                M
+                </a>
+                </div>
+              </li>
+               <li>
+                <div class="link-sidebar">
+                <a href="<%= products_search_path(size: 'L') %>">
+                L
+                </a>
+                </div>
+              </li>
+               <li>
+                <div class="link-sidebar">
+                <a href="<%= products_search_path(size: 'XL') %>">
+                XL
+                </a>
+                </div>
+              </li>
+                 <li>
+                <div class="link-sidebar">
+                <a href="<%= products_search_path(size: 'XXL') %>">
+                XXL
+                </a>
+                </div>
+              </li>
+                <li>
+                <div class="link-sidebar">
+                <a href="<%= products_search_path(size: 'XXXL') %>">
+                XXXL
+                </a>
+                </div>
+              </li>
+            </ul>
+      </div>
+    </div>
+
+
+
+
+
+
+
 
   <div class="page-content-wrapper">
     <div class="container container-full">

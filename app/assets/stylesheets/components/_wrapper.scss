@@ -25,7 +25,8 @@
   margin-left: -240px;
   left: 250px;
   width: 250px;
-  background: #CCC;
+  height: 200px;
+  background: white;
   position: absolute;
   bottom:0;
   top:0;
@@ -35,6 +36,22 @@
   border-radius: 5px;
   border: 1px solid black;
 }
+
+
+
+.wrapper-color-position {
+  top:230px ;
+  height: 200px;
+}
+
+
+
+.wrapper-size-position{
+  top:450px ;
+  height: 200px;
+}
+
+
 
 .page-content-wrapper {
   width: 100%;
@@ -48,6 +65,16 @@
   margin: 0;
   padding: 0;
 }
+
+.link-sidebar{
+  position: relative;
+  padding: 2px;
+}
+
+.size {
+  left: 72px;
+}
+
 
 .container-full{
   width: 100% !important;
