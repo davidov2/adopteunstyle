@@ -42,13 +42,15 @@
           <% end %>
       </div>
       <h4 class="text-center"><%= paginate @products %></h4>
+
+      <div class="container padded-basket text-center">
+      <p><%= link_to "Choisir un autre look", looks_path, :class => "btn btn-danger" %>
+      <%= link_to "Voir tous les produits", products_path, :class => "btn btn-danger" %></p>
+
+      </div>
     </div>
   </div>
 </div>
 
 
-<div class="container padded-basket text-center">
-  <p><%= link_to "Choisir un autre look", looks_path, :class => "btn btn-danger" %>
-  <%= link_to "Voir tous les produits", products_path, :class => "btn btn-danger" %></p>
-</div>
-</div>
+
