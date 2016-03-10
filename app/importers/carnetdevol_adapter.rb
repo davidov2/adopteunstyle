@@ -13,7 +13,7 @@ class CarnetdevolAdapter < GenericAdapter
     return false if self.image(input).include?("placeholder")
     return false if self.image(input).nil?
     return false if self.ean(input).empty?
-    return false unless self.gender(input).include?("Homme")
+    return true unless self.gender(input).include?("Homme")
     return true
   end
 

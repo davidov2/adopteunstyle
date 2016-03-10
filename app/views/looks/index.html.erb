@@ -5,7 +5,13 @@
 
   <div class="container">
     <div class="row">
-    <h3>Sélectionnez un ou plusieurs looks :</h3>
+
+    <h3 style="padding: 0 15px">Sélectionnez vos looks préférés pour créer votre flux personnalisé :
+     <input type="submit" value="Rechercher" class="btn btn-primary pull-right">
+     </h3>
+
+
+
     <%Look.all.each do |look| %>
       <div class="col-xs-12 col-sm-4 col-md-3">
         <div class="card-look" >
@@ -14,7 +20,7 @@
             </div>
             <div class="card-hover hide">
           <!--     <p>Je suis une super look qui déchire </p> -->
-              <p><%= look.description %></p>
+              <p><span><%= look.description %></span></p>
             </div>
             <div class="card-check <%= 'hide' unless @looks_selected.include?(look.id.to_s) %>">
               <i class="fa fa-check"></i>
