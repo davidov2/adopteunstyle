@@ -1,24 +1,17 @@
 class ProductsController < ApplicationController
 
-  def index
-    @products = Product.all.page(params[:page]).per(30)
-    @categories = Product.select(:category).map(&:category).uniq || []
-    @colors = Product.select(:color).map(&:color).uniq
-  end
-
   def show
-   @product = Product.find(params[:id])
+    @product = Product.find(params[:id])
   end
 
-  def search
-
+  def index
+    params[:looks] = {'20' => '1'} if params[:looks].blank? or \
+    (params[:looks].include? '20' and params[:looks]['20'] == '1')
     session['search_params'] = params
 
     category = params[:category]
     size = params[:size]
     color = params[:color]
-
-    raise 'no look' if params[:looks].blank?
 
     @looks = params[:looks]
     looks = @looks.reject{|k,v| v == '0'}.keys
@@ -47,10 +40,8 @@ class ProductsController < ApplicationController
     @categories = Product.where(id: products_from_brand.map(&:id)).select(:category).map(&:category).uniq || []
     @colors = Product.where(id: products_from_brand.map(&:id)).select(:color).map(&:color).uniq || []
     respond_to do |format|
-      format.html { render action: :index }
+      format.html
     end
   end
 
 end
-
-
