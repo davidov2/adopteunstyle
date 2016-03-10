@@ -73,7 +73,6 @@ Look.create!( name: "SURFWEAR", description: "Look on the beach", photo:"looks/l
 Look.create!( name: "TOUS", description: "Voir tous les produits", photo:"looks/look-all.jpg")
 
 
-Brand.destroy_all
 Brand.all.each do |brand|
   brand.look = look1
   brand.save

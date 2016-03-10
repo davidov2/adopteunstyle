@@ -3,9 +3,10 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 20px;
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-direction: row-reverse;
   // position: relative;
 }
@@ -31,3 +32,23 @@
 .banner-parallax2 {
   background-image: image-url("image3-parallax.jpg")
 }
+
+.banner-filter {
+  color: white;
+  position: absolute;
+  font-weight: lighter;
+  background-color: rgba(30,30,30,0.7);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+}
+
+.banner-content{
+  color: white;
+  position: relative;
+  z-index: 8;
+}
+
+
