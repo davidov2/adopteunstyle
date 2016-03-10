@@ -1,135 +1,98 @@
-
 <h1 class="text-center">Voici les articles de votre look préféré :</h1>
 <h5 class="text-center">Affichage de <%= @products.length %> articles sur <%= @total %> trouvés</h5>
 
 
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
 
-<div class="wrapper wrapper-product">
-    <div class="sidebar-wrapper">
-      <div class="sidebar-nav">
+      <form method="get">
 
-          <h4 class="text-center">Categories</h4>
-            <ul style = "list-style-type: none;">
-            <% @categories.each do |category| %>
-              <li>
-                <div class="link-sidebar">
-                <a href="<%= products_search_path(query: category) %>">
-                  <%= category %>
-                </a>
-                </div>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
+        <h4 class="text-center">Looks choisis</h4>
+        <% @looks_name.each do |l| %>
+          <h5 class="text-center"><%= l %></h5>
+        <% end %>
+        <center>
+        <%= link_to looks_path, class:'btn btn-default btn-xs' do %>
+          Changer de look
+        <% end %>
+        </center>
+        <% @looks.each do |key,value| %>
+            <%= hidden_field_tag "looks[#{key}]",value %>
+        <% end %>
 
+        <hr>
 
-      <div class="sidebar-wrapper wrapper-color-position">
-        <div class="sidebar-nav">
-          <h4 class="text-center">Couleurs</h4>
-            <ul style = "list-style-type: none;">
-            <% @colors.each do |color| %>
-              <li>
-              <div class="link-sidebar">
-              <a href="<%= products_search_path(query: color) %>">
-              <%= color %>
-              </a>
-              </div>
-              </li>
-              <% end %>
-            </ul>
-      </div>
-    </div>
-
-
-
-      <div class="sidebar-wrapper wrapper-size-position">
-        <div class="sidebar-nav">
-          <h4 class="text-center">Tailles</h4>
-            <ul style = "list-style-type: none;">
-              <li>
-                <div class="link-sidebar">
-                <a href="<%= products_search_path(size: 'S') %>">
-                S
-                </a>
-                </div>
-              </li>
-               <li>
-                <div class="link-sidebar">
-                <a href="<%= products_search_path(size: 'M') %>">
-                M
-                </a>
-                </div>
-              </li>
-               <li>
-                <div class="link-sidebar">
-                <a href="<%= products_search_path(size: 'L') %>">
-                L
-                </a>
-                </div>
-              </li>
-               <li>
-                <div class="link-sidebar">
-                <a href="<%= products_search_path(size: 'XL') %>">
-                XL
-                </a>
-                </div>
-              </li>
-                 <li>
-                <div class="link-sidebar">
-                <a href="<%= products_search_path(size: 'XXL') %>">
-                XXL
-                </a>
-                </div>
-              </li>
-                <li>
-                <div class="link-sidebar">
-                <a href="<%= products_search_path(size: 'XXXL') %>">
-                XXXL
-                </a>
-                </div>
-              </li>
-            </ul>
-      </div>
-    </div>
-
-
-
-
-
-
-
-
-  <div class="page-content-wrapper">
-    <div class="container container-full">
-      <div class="row">
-          <% @products.each do |p| %>
-            <div class="col-xs-12 col-md-4">
-              <div class="card-product">
-                  <%= image_tag p.image%>
-                  <div class="card-title">
-                    <%= p.title_short %>
-                  </div>
-                  <div class="card-price">
-                    <p><%= p.offers.first.price %>€</p>
-                  </div>
-                  <%= link_to product_path(p), class: "card-detail"  do %>
-                    <i class="fa fa-info-circle"> </i>
-                  <% end %>
-                <%= link_to "Voir l'offre chez #{p.best_offer.supplier}", p.best_offer.link,  class: "btn  btn-danger btn-block card-cta", target: "blank"%>
-              </div>
-            </div>
+        <h4 class="text-center">Categories</h4>
+        <select name="category" style="width: 100%">
+          <option value=""></option>
+          <% @categories.each do |category| %>
+              <option value="<%= category %>" <%= 'selected="selected"' if category == params[:category] %>><%= category.capitalize %></option>
           <% end %>
-      </div>
+        </select>
+
+        <hr>
+
+        <h4 class="text-center">Couleurs</h4>
+        <select name="color" style="width: 100%">
+          <option value=""></option>
+          <% @colors.each do |color| %>
+              <option value="<%= color %>" <%= 'selected="selected"' if color == params[:color] %>><%= color.capitalize %></option>
+          <% end %>
+        </select>
+
+        <hr>
+
+        <h4 class="text-center">Tailles</h4>
+        <select name="size" style="width: 100%">
+          <option value=""></option>
+          <% %w{S M L XL XXL XXXL}.each do |s| %>
+              <option value="<%= s %>" <%= 'selected="selected"' if s == params[:size] %>><%= s %></option>
+          <% end %>
+        </select>
+
+      </form>
+
+    </div>
+
+    <div class="col-md-9">
+
+      <% @products.each do |p| %>
+          <div class="col-xs-12 col-md-4">
+            <div class="card-product">
+              <%= image_tag p.image%>
+              <div class="card-title">
+                <%= p.title_short %>
+              </div>
+              <div class="card-price">
+                <p><%= p.offers.first.price %>€</p>
+              </div>
+              <%= link_to product_path(p), class: 'card-detail'  do %>
+                  <i class='fa fa-info-circle'> </i>
+              <% end %>
+              <%= link_to "Voir l'offre chez #{p.best_offer.supplier}", p.best_offer.link,  class: 'btn  btn-danger btn-block card-cta', target: 'blank'%>
+            </div>
+          </div>
+      <% end %>
       <h4 class="text-center"><%= paginate @products %></h4>
 
       <div class="container padded-basket text-center">
-      <p><%= link_to "Choisir un autre look", looks_path, :class => "btn btn-danger" %>
-      <%= link_to "Voir tous les produits", products_path, :class => "btn btn-danger" %></p>
-
+        <p><%= link_to 'Choisir un autre look', looks_path, :class => 'btn btn-danger' %>
+          <%= link_to 'Voir tous les produits', products_path, :class => 'btn btn-danger' %>
+        </p>
       </div>
+
+
     </div>
+
   </div>
-
-
 </div>
+
+<% content_for :after_js do %>
+    <script>
+      $('select').on('change', function() {
+        $(this).siblings('select').val('');
+        $(this).parent('form').submit();
+      });
+    </script>
+<% end %>
