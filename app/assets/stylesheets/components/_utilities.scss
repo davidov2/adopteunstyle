@@ -10,6 +10,11 @@
   padding-bottom: 3em;
 }
 
+.margin-sm {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
 .padded-newsletter{
   padding-top: 2em;
   padding-bottom: 2em;
@@ -70,4 +75,13 @@
 
 .full{
   width: 100%;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.number{
+  color: $red;
+  font-decoration: bold;
 }

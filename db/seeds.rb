@@ -59,11 +59,12 @@ Feed.create!(supplier: "Eden Park", adapter: "edenpark", url: 'https://gist.gith
 user1 = User.first_or_create!(email: 'admin@admin.com', password: '12345678', admin: true)
 user1.save
 # Seed Look
+
 Look.destroy_all
 look1 = Look.create!( name: "BUSINESS", description: "Présentable en toutes circonstances", photo:"looks/look-9.png")
-Look.create!( name: "DESIGNERS", description: "Les dernières nouveautés des créateurs", photo:"looks/look-2.png")
-Look.create!( name: "DENIM", description: "Décontracté et jeans basiques", photo:"looks/look-3.png")
-Look.create!( name: "LUXE", description: "Hautes gammes", photo:"looks/look-6.png")
+look2 = Look.create!( name: "DESIGNERS", description: "Les dernières nouveautés des créateurs", photo:"looks/look-2.png")
+look3 =Look.create!( name: "DENIM", description: "Décontracté et jeans basiques", photo:"looks/look-3.png")
+look4 =Look.create!( name: "LUXE", description: "Hautes gammes", photo:"looks/look-6.png")
 Look.create!( name: "NAUTIQUE", description: "Look maritime", photo:"looks/look-0.png")
 Look.create!( name: "ROCK", description: "Look branché pour rockers urbains", photo:"looks/look-7.png")
 Look.create!( name: "SPORT", description: "Look sportif", photo: "looks/look-8.jpg")
@@ -72,8 +73,15 @@ Look.create!( name: "SURFWEAR", description: "Look on the beach", photo:"looks/l
 Look.create!( name: "TOUS", description: "Voir tous les produits", photo:"looks/look-all.jpg")
 
 
+Brand.all.each do |brand|
+  brand.look = look1
+  brand.save
+end
+
+
 # Seed Choice
 choice1 = Choice.first_or_create!(user: user1, look: look1)
+
 
 =begin
 # Seed Product
