@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  ActiveAdmin.routes(self)
 
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :contacts, only: :create
 
