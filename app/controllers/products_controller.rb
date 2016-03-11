@@ -5,26 +5,35 @@ class ProductsController < ApplicationController
   end
 
   def index
-    params[:looks] = {'20' => '1'} if params[:looks].blank? or \
-    (params[:looks].include? '20' and params[:looks]['20'] == '1')
+    # params[:looks] = {'20' => '1'} if params[:looks].blank? or \
+    # (params[:looks].include? '20' and params[:looks]['20'] == '1')
     session['search_params'] = params
 
     category = params[:category]
     size = params[:size]
     color = params[:color]
 
-    @looks = params[:looks]
-    looks = @looks.reject{|k,v| v == '0'}.keys
+    @looks = params[:looks] || []
 
-    if looks.include? '20'
-      # Tous les looks
-      @looks_name = [Look.find(20).name]
+    if @looks.length == 0
       products_from_brand = Product.includes(:brand).all
+      @looks_name = ["-"]
     else
+      looks = @looks.reject{|k,v| v == '0'}.keys
       @looks_name = looks.map { |k,v| Look.find(k).name }
       brands = Brand.includes(:look).where(look: looks)
       products_from_brand = Product.includes(:brand).where(brand: brands)
     end
+
+    # if looks.include? '20'
+    #   # Tous les looks
+    #   @looks_name = [Look.find(20).name]
+    #   products_from_brand = Product.includes(:brand).all
+    # else
+    #   @looks_name = looks.map { |k,v| Look.find(k).name }
+    #   brands = Brand.includes(:look).where(look: looks)
+    #   products_from_brand = Product.includes(:brand).where(brand: brands)
+    # end
 
     products = products_from_brand
 
