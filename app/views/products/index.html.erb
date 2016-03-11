@@ -20,9 +20,9 @@
         </p>
 
         <% @looks.each do |key,value| %>
-            <%= hidden_field_tag "looks[#{key}]",value %>
+            <%= hidden_field_tag "looks[#{key}]", value %>
         <% end %>
-
+        <%= hidden_field_tag "query", params[:query] %>
         <hr>
 
         <h4>Categories</h4>

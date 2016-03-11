@@ -1,5 +1,19 @@
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "http://TODO_PUT_YOUR_DOMAIN_HERE" }
+
+  # Mail settings through Gmail
+  config.action_mailer.asset_host = ENV['CANONICAL_URL']
+  config.action_mailer.smtp_settings = {
+      address: 'smtp.gmail.com',
+      port: 587,
+      domain: ENV['DOMAIN_NAME'],
+      authentication: 'plain',
+      enable_starttls_auto: true,
+      user_name: ENV['GMAIL_USERNAME'],
+      password: ENV['GMAIL_PASSWORD']
+  }
+  config.action_mailer.default_url_options = { :host => ENV['HOSTNAME'] }
+
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.

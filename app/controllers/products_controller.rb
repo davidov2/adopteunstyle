@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
     # (params[:looks].include? '20' and params[:looks]['20'] == '1')
     session['search_params'] = params
 
+    query = params[:query]
     category = params[:category]
     size = params[:size]
     color = params[:color]
@@ -44,8 +45,8 @@ class ProductsController < ApplicationController
       products = products.where(id: product_ids)
     end
 
-    if params[:query].present?
-      products = Product.search_engine(params[:query]).page(params[:page]).per(30)
+    unless query.blank?
+      products = products.search_engine(query)
     end
 
     @products = products.page(params[:page]).per(30)
