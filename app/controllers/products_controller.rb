@@ -45,7 +45,6 @@ class ProductsController < ApplicationController
       products = products.where(id: product_ids)
     end
 
-
     unless query.blank?
       products = products.search_engine(query)
     end
@@ -54,9 +53,6 @@ class ProductsController < ApplicationController
     @total = @products.try(:total_count)
     @categories = Product.where(id: products_from_brand.map(&:id)).select(:category).map(&:category).uniq || []
     @colors = Product.where(id: products_from_brand.map(&:id)).select(:color).map(&:color).uniq || []
-    respond_to do |format|
-      format.html
-    end
   end
 
 end

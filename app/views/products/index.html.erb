@@ -8,30 +8,25 @@
 
       <form method="get">
 
-        <h4 class="text-center">Looks choisis</h4>
+        <h4>Vos looks</h4>
         <% @looks_name.each do |l| %>
-          <h5 class="text-center"><%= l %></h5>
+          <h5><strong><%= l %></strong></h5>
         <% end %>
-        <center>
+
         <p>
-        <%= link_to looks_path, class:'btn btn-default btn-xs' do %>
-          Changer de look
-        <% end %>
-        </p>
-        <p>
-          <%= link_to 'Tous les produits', products_path, :class => 'btn btn-default btn-xs' %>
+          <%= link_to looks_path, style: "font-size: 12px" do %>
+            Changer de look
+          <% end %>
         </p>
 
-
-        </center>
         <% @looks.each do |key,value| %>
             <%= hidden_field_tag "looks[#{key}]", value %>
         <% end %>
         <%= hidden_field_tag "query", params[:query] %>
         <hr>
 
-        <h4 class="text-center">Categories</h4>
-        <select name="category" style="width: 100%">
+        <h4>Categories</h4>
+        <select name="category" style="width: 100%" class="form-control">
           <option value=""></option>
           <% @categories.each do |category| %>
               <option value="<%= category %>" <%= 'selected="selected"' if category == params[:category] %>><%= category.capitalize %></option>
@@ -40,8 +35,8 @@
 
         <hr>
 
-        <h4 class="text-center">Couleurs</h4>
-        <select name="color" style="width: 100%">
+        <h4>Couleurs</h4>
+        <select name="color" style="width: 100%" class="form-control">
           <option value=""></option>
           <% @colors.each do |color| %>
               <option value="<%= color %>" <%= 'selected="selected"' if color == params[:color] %>><%= color.capitalize %></option>
@@ -50,8 +45,8 @@
 
         <hr>
 
-        <h4 class="text-center">Tailles</h4>
-        <select name="size" style="width: 100%">
+        <h4>Tailles</h4>
+        <select name="size" style="width: 100%" class="form-control">
           <option value=""></option>
           <% %w{S M L XL XXL XXXL}.each do |s| %>
               <option value="<%= s %>" <%= 'selected="selected"' if s == params[:size] %>><%= s %></option>
