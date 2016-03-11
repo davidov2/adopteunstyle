@@ -39,6 +39,7 @@
 
 .image-chiffre {
   width: 150px;
+  margin-bottom: 18px;
 }
 
 .record {
@@ -63,4 +64,13 @@
 
 .form-control {
   width: 100%;
+}
+
+.search-box {
+  padding-left: 6px;
+}
+
+.btn-search {
+  border-left: 0;
+  border-radius: 0 3px 3px 0;
 }

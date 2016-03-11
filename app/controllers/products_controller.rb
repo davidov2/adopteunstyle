@@ -44,13 +44,14 @@ class ProductsController < ApplicationController
       products = products.where(id: product_ids)
     end
 
+    if params[:query].present?
+      products = Product.search_engine(params[:query]).page(params[:page]).per(30)
+    end
+
     @products = products.page(params[:page]).per(30)
     @total = @products.try(:total_count)
     @categories = Product.where(id: products_from_brand.map(&:id)).select(:category).map(&:category).uniq || []
     @colors = Product.where(id: products_from_brand.map(&:id)).select(:color).map(&:color).uniq || []
-    respond_to do |format|
-      format.html
-    end
   end
 
 end

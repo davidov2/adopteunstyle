@@ -8,8 +8,8 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <%= form_tag products_path, class: "navbar-wagon-search",  method: "get" do %>
-      <%= text_field_tag :query, params[:query],placeholder: "Recherchez un article", :class => "search-box"%>
-      <%= submit_tag "GO", name: nil, :class => "btn btn-search"%>
+      <%= text_field_tag :query, params[:query] ,placeholder: "Exemple: 'costume'", :class => "search-box"%>
+      <%= submit_tag "Rechercher", name: nil, :class => "btn btn-search btn-default"%>
     <% end%>
 
     <!-- Different navigation if login or not -->
@@ -25,7 +25,7 @@
     <% else %>
 
       <!-- Login text link -->
-      <%= link_to t(".sign_in", default: "Connexion"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+      <%# link_to t(".sign_in", default: "Connexion"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
 
 
 
