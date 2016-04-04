@@ -20,7 +20,6 @@
         <div class="feature">
           <%= image_tag "pointer100px.png", class: "text-center"%>
           <div><p>1. Choisissez vos looks préférés parmi 10 tenues</p></div>
-
         </div>
       </div>
       <div class="col-xs-12 col-sm-4">
@@ -42,9 +41,8 @@
 <div class="banner banner-parallax banner-parallax1" data-stellar-background-ratio="0.5">
   <div class="banner-filter"></div>
   <div class="banner-content text-center">
-    <h1>Tous vos articles sur Monsieur Mode</h1>
-    <p>Vos actus mode et les dernières tendances de vêtements et accessoires sont disponible ici.</p>
-    <p class="italic"> Explorer les dernières collections.</p>
+    <h1>Toute la mode homme est sur Monsieur Mode</h1>
+    <p>Vos actus mode et les dernières tendances de vêtements et accessoires sont disponibles ici.</p>
   </div>
 </div>
 
@@ -54,13 +52,13 @@
       <div class="row">
         <div class="col-xs-12 col-sm-6">
           <%= image_tag "feature1.png", class: "image-chiffre"%>
-          <p class="text-center">Trouvez parmi</p>
-          <h2 class="text-center">100 000 références</h2>
+          <p class="text-center">Trouvez vos articles préférés parmi</p>
+          <h2 class="text-center"><%= Product.count %> références</h2>
         </div>
         <div class="col-xs-12 col-sm-6">
           <%= image_tag "partner-feature.png", class: "image-chiffre"%>
-          <p class="text-center">Nous travaillons avec</p>
-          <h2 class="text-center">55 partenaires</h2>
+          <p class="text-center">Nous travaillons actuellement avec</p>
+          <h2 class="text-center"><%= Feed.count %> partenaires</h2>
         </div>
       </div>
     </div>
@@ -132,7 +130,7 @@
       </div>
     </div>
       <div class="container text-center">
-        <%= link_to "Définissez votre look", looks_path, class: "btn btn-primary" %>
+        <%= link_to "Définissez votre look", looks_path, class: "btn navbar-wagon-button cta btn-lg margin-sm" %>
       </div>
   </div>
 </div>
@@ -159,17 +157,15 @@
     <h3><strong>CONTACTEZ-NOUS</strong></h3>
     <p>Une question ? Envoyez nous un message. Réponse garantie sous 24 heures.</p>
   </div>
-<div class="container">
-
-
-    <%= simple_form_for @contact do |f| %>
-      <%= f.input :name, placeholder: "Votre Nom", label: false %>
-      <%= f.input :email, placeholder: "Votre Email", label: false %>
-      <%= f.input :subject, placeholder: "Objet de votre Message", label: false %>
-      <%= f.input :message, placeholder: "Votre Message", label: false, :input_html => {:rows => 10} %>
-      <%= f.button :submit, "Envoyer mon message", class: "btn btn-primary" %>
-    <% end %>
-
+<div class="container text-center">
+  <%= simple_form_for @contact do |f| %>
+    <%= f.input :name, placeholder: "Votre Nom", label: false %>
+    <%= f.input :email, placeholder: "Votre Email", label: false %>
+    <%= f.input :subject, placeholder: "L'objet de votre Message", label: false %>
+    <%= f.input :message, placeholder: "Votre Message", label: false, :input_html => {:rows => 5} %>
+    <%= f.button :submit, "Envoyer mon message", class: "btn navbar-wagon-button cta btn-lg margin-sm" %>
+  <% end %>
+</div>
 
       <!-- <form class="form-horizontal" action="" methode="POST">
           <div class="form-group">
@@ -203,7 +199,7 @@
           </form>
  -->
 
-</div>
+
 
 </div>
 
