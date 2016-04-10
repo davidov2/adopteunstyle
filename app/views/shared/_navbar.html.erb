@@ -8,7 +8,7 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <%= form_tag products_path, class: "navbar-wagon-search",  method: "get" do %>
-      <%= text_field_tag :query, params[:query] ,placeholder: "Exemple: 'costume'", :class => "search-box"%>
+      <%= text_field_tag :query, params[:query] ,placeholder: "Exemple : 'costume'", :class => "search-box"%>
       <%= submit_tag "Rechercher", name: nil, :class => "btn btn-search btn-default"%>
     <% end%>
 

@@ -6,7 +6,7 @@
 
     <div class="banner-content text-center">
     <h1> Le shop de Monsieur Mode </h1>
-    <p class="tagline"> Votre look homme en 1 clic </p>
+    <p class="tagline"> Trouvez votre look pour homme en 1 clic </p>
     <%= link_to "Choisir mon look", looks_path, class: "btn navbar-wagon-button cta btn-lg margin-sm" %>
     </div>
 
@@ -18,7 +18,7 @@
     <h2>Comment ça marche ?</h2>
       <div class="col-xs-12 col-sm-4">
         <div class="feature">
-          <%= image_tag "pointer100px.png", class: "text-center"%>
+          <%= image_tag "button_ok.png", class: "text-center"%>
           <div><p>1. Choisissez vos looks préférés parmi 10 tenues</p></div>
         </div>
       </div>
@@ -41,7 +41,7 @@
 <div class="banner banner-parallax banner-parallax1" data-stellar-background-ratio="0.5">
   <div class="banner-filter"></div>
   <div class="banner-content text-center">
-    <h1>Toute la mode homme est sur Monsieur Mode</h1>
+    <h1>Toute la mode homme est sur<br> Monsieur Mode Shop !</h1>
     <p>Vos actus mode et les dernières tendances de vêtements et accessoires sont disponibles ici.</p>
   </div>
 </div>
@@ -113,7 +113,7 @@
         <div class="record">
           <%= image_tag "visage1.jpg", class: "avatar-bordered-large"%>
         </div>
-        <p>"Ce site me fait gagner un temps fou ! Mon mari fait du 3XL. Avant, je consultais des dizaines de boutiques et je ne trouvais pas grand chose. Aujourd"hui, je trouve tout sur AdopteUnStyle ! Merci et bonne continuationà votre équipe !"</p>
+        <p>"Ce site me fait gagner un temps fou ! Mon mari fait du 3XL. Avant, je consultais des dizaines de boutiques et je ne trouvais pas grand chose. Aujourd'hui, je trouve tout avec Monsieur Mode ! Merci et bonne continuation à votre équipe !"</p>
 
       </div>
       <div class="col-xs-12 col-sm-4">
@@ -130,7 +130,7 @@
       </div>
     </div>
       <div class="container text-center">
-        <%= link_to "Définissez votre look", looks_path, class: "btn navbar-wagon-button cta btn-lg margin-sm" %>
+        <%= link_to "Je détermine mon look", looks_path, class: "btn navbar-wagon-button cta btn-lg margin-sm" %>
       </div>
   </div>
 </div>
@@ -139,14 +139,14 @@
  <div class="banner-filter"> </div>
   <!-- <h1>www.adopteunstyle.com</h1> -->
   <div class="banner-content">
-  <div class="newsletter text-center">
-   <h2>RESTONS EN CONTACT !</h2>
-   <p>Inscrivez-vous à la newsletter pour être tenu informé des dernières actualités</p>
-   <form class="form-inline text-center">
-    <input placeholder="Votre email" class="form-control text-center" type="email" name="email">
-    <button type="submit" class="navbar-wagon-item navbar-wagon-button btn">Je m'inscris</button>
-   </form>
-  </div>
+    <div class="newsletter text-center">
+     <h2>RESTONS EN CONTACT !</h2>
+     <p>Inscrivez-vous à la newsletter pour être tenu informé des dernières actualités</p>
+     <form class="form-inline text-center">
+      <input placeholder="Votre email" class="form-control text-center" type="email" name="email">
+      <button type="submit" class="navbar-wagon-item navbar-wagon-button btn">Je m'inscris</button>
+     </form>
+    </div>
   </div>
 
 </div>
@@ -163,7 +163,7 @@
     <%= f.input :email, placeholder: "Votre Email", label: false %>
     <%= f.input :subject, placeholder: "L'objet de votre Message", label: false %>
     <%= f.input :message, placeholder: "Votre Message", label: false, :input_html => {:rows => 5} %>
-    <%= f.button :submit, "Envoyer mon message", class: "btn navbar-wagon-button cta btn-lg margin-sm" %>
+    <%= f.button :submit, "Envoyer le message", class: "btn navbar-wagon-button cta btn-lg margin-sm" %>
   <% end %>
 </div>
 
