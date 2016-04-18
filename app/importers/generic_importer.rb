@@ -5,6 +5,7 @@ class GenericImporter
     @import = Import.create(feed: feed)
     @error = 0
     @success = 0
+    @updated = 0
     @rejected = 0
   end
 
@@ -36,7 +37,7 @@ class GenericImporter
       @import.message = e
       @import.update(status: :error)
     end
-    puts "Feed #{@feed.supplier} : success => #{@success}, errors => #{@error},  rejected => #{@rejected} "
+    puts "Feed #{@feed.supplier} : success => #{@success}, errors => #{@error},  rejected => #{@rejected}, updated => #{@updated} "
     total = @success+@error+@rejected
     success_rate = total==0 ? 0 : @success.fdiv(total)
     @import.update(finished_at: Time.now, total: total, success_rate: success_rate, rejected: @rejected )
@@ -63,7 +64,7 @@ class GenericImporter
       o.destroy!
    end
     p.offers.build(supplier: @feed.supplier, price: attributes[:price], link: attributes[:link], size: attributes[:size])
-
+    @updated += 1
     saveProduct(p)
   end
 

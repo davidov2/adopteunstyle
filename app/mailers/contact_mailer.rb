@@ -12,8 +12,9 @@ class ContactMailer < ApplicationMailer
     @email = contact.email
     @message = contact.message
     mail(
-      to:       "acardnicolas@hotmail.com",
-      subject:  "Subject #{@subject} de #{@name}!"
+      to:       "contact@monsieur-mode-shop.com",
+      from: @email,
+      subject:  @subject
     )
   end
 
