@@ -13,7 +13,10 @@ class GenericImporter
     adapter = load_adapter(@feed)
     importation do
       docs = adapter.open_feed(@feed.url)
-      docs.each do |product|
+      # limit import in production to stay in free plans
+      import_size = ENV["import_limit"] || 10
+      #binding.pry
+      docs.take(import_size).each do |product|
         attributes = adapter.parse(product)
         if adapter.valid?(product)
           addProduct(attributes)
