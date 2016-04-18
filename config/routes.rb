@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :looks
   resources :products
+
+  get "contact", to: "pages#contact"
 end
