@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'Monsieur Mode Shop ' << ENV['SUPPORT_EMAIL']
+  default from: 'Michael de Monsieur Mode Shop'
   layout 'mailer'
 end
