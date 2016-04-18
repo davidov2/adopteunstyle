@@ -1,7 +1,7 @@
 require "nokogiri"
 require "open-uri"
 
-class EffiliationAdapter < GenericAdapter
+class TeddysmithAdapter < GenericAdapter
 
   def open_feed(url)
     data = Nokogiri::XML(open(url))
@@ -22,7 +22,8 @@ class EffiliationAdapter < GenericAdapter
   end
 
   def ean(input)
-    data_from_path(input, "upc")
+    sku = data_from_path(input, "sku")
+    return "teddysmith_#{sku}"
   end
 
   def image(input)
