@@ -1,7 +1,20 @@
 // Your footer style
 .footer {
 background: $gray-darker;
-padding: 50px
+padding: 50px;
+
+  h3{
+    color: white;
+  }
+
+  a{
+    color: white;
+  }
+
+  ul{
+    padding: 0;
+  }
+
 }
 
 #p-footer{
@@ -58,3 +71,5 @@ transition: all 0.3s ease-in-out 0s;
 .menu-footer-container {
   background: $gray-darker;
 }
+
+
