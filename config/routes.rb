@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   resources :products
 
   get "contact", to: "pages#contact"
+  get "qui-sommes-nous", to: "pages#nous"
+  get "boutique", to: "pages#boutique"
+  get "partenaires", to: "pages#partenaires"
+  get "faq", to: "pages#faq"
 end
