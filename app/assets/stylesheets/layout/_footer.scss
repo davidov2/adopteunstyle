@@ -23,6 +23,15 @@ padding: 50px;
   color: white;
 }
 
+#mm-footer{
+  padding: 10px;
+  margin: 0;
+  color: white;
+}
+  a{
+    color: white;
+  }
+
 .share-links {
   display: flex;
   align-items: center;
@@ -71,5 +80,3 @@ transition: all 0.3s ease-in-out 0s;
 .menu-footer-container {
   background: $gray-darker;
 }
-
-
