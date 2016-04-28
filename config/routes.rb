@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get "boutique", to: "pages#boutique"
   get "partenaires", to: "pages#partenaires"
   get "faq", to: "pages#faq"
+  get "mentionslegales", to: "pages#mentionslegales"
 end

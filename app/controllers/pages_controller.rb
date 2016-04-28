@@ -18,4 +18,7 @@ class PagesController < ApplicationController
     @contact = Contact.new
   end
 
+  def mentionslegales
+  end
+
 end
