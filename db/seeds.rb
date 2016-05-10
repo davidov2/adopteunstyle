@@ -74,7 +74,7 @@ Look.create!( name: "ROCK", description: "Look branché pour rockers urbains", p
 Look.create!( name: "SPORT", description: "Look sportif", photo: "looks/look-8.jpg")
 Look.create!( name: "STREETWEAR", description: "Décontracté urbain", photo:"looks/look-1.jpeg")
 Look.create!( name: "SURFWEAR", description: "Look on the beach", photo:"looks/look-4.jpg")
-Look.create!( name: "TOUS", description: "Voir tous les produits", photo:"looks/look-all.jpg")
+Look.create!( name: "TOUS LES LOOKS", description: "Voir tous les produits", photo:"looks/look-all.jpg")
 
 
 Brand.all.each do |brand|

@@ -1,22 +1,17 @@
 <h1 class="text-center">Voici les articles de votre look préféré :</h1>
 <h5 class="text-center">Affichage de <%= @products.length %> articles sur <%= @total %> trouvés</h5>
-
-
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-
       <form method="get">
-
         <h4>Vos looks</h4>
         <% @looks_name.each do |l| %>
           <h5><strong><%= l %></strong></h5>
         <% end %>
-
         <p>
-          <%= link_to looks_path, style: "font-size: 12px" do %>
-            Changer de look
-          <% end %>
+        <%= link_to looks_path, style: "font-size: 12px" do %>
+        <div class="change"><em>Changer de look</em></div>
+        <% end %>
         </p>
 
         <% @looks.each do |key,value| %>
