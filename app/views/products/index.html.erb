@@ -1,12 +1,12 @@
 <h1 class="text-center">Voici les articles de votre look préféré :</h1>
-<h5 class="text-center">Affichage de <%= @products.length %> articles sur <%= @total %> trouvés</h5>
+  <h5 class="text-center">Affichage de <%= @products.length %> articles sur <%= @total %> trouvés</h5>
 <div class="container">
   <div class="row">
     <div class="col-md-3">
       <form method="get">
         <h4>Vos looks</h4>
         <% @looks_name.each do |l| %>
-          <h5><strong><%= l %></strong></h5>
+        <h5><strong><%= l %></strong></h5>
         <% end %>
         <p>
         <%= link_to looks_path, style: "font-size: 12px" do %>
@@ -15,31 +15,26 @@
         </p>
 
         <% @looks.each do |key,value| %>
-            <%= hidden_field_tag "looks[#{key}]", value %>
+          <%= hidden_field_tag "looks[#{key}]", value %>
         <% end %>
         <%= hidden_field_tag "query", params[:query] %>
         <hr>
-
         <h4>Categories</h4>
         <select name="category" style="width: 100%" class="form-control">
           <option value=""></option>
           <% @categories.each do |category| %>
-              <option value="<%= category %>" <%= 'selected="selected"' if category == params[:category] %>><%= category.capitalize %></option>
+            <option value="<%= category %>" <%= 'selected="selected"' if category == params[:category] %>><%= category.capitalize %></option>
           <% end %>
         </select>
-
         <hr>
-
         <h4>Couleurs</h4>
         <select name="color" style="width: 100%" class="form-control">
           <option value=""></option>
           <% @colors.each do |color| %>
-              <option value="<%= color %>" <%= 'selected="selected"' if color == params[:color] %>><%= color.capitalize %></option>
+            <option value="<%= color %>" <%= 'selected="selected"' if color == params[:color] %>><%= color.capitalize %></option>
           <% end %>
         </select>
-
         <hr>
-
         <h4>Tailles</h4>
         <select name="size" style="width: 100%" class="form-control">
           <option value=""></option>
@@ -47,13 +42,9 @@
               <option value="<%= s %>" <%= 'selected="selected"' if s == params[:size] %>><%= s %></option>
           <% end %>
         </select>
-
       </form>
-
     </div>
-
     <div class="col-md-9">
-
       <% @products.each do |p| %>
           <div class="col-xs-12 col-md-4">
             <div class="card-product">
@@ -82,11 +73,7 @@
           </div>
         </div>
       <% end %>
-
-
-
-
-  </div>
+        </div>
 </div>
 
 <% content_for :after_js do %>

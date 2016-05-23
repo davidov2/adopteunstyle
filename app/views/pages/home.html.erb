@@ -3,13 +3,11 @@
 <div class="banner banner-home"data-stellar-background-ratio="0.5">
   <div class="banner-filter">
   </div>
-
     <div class="banner-content text-center">
     <h1> Le shop de Monsieur Mode </h1>
     <p class="tagline"> Trouvez votre look pour homme en 1 clic </p>
     <%= link_to "Je choisis mon look", looks_path, class: "btn navbar-wagon-button cta btn-lg margin-sm" %>
     </div>
-
 </div>
 
 <div class="wrapper-feature text-center">
@@ -41,7 +39,7 @@
 <div class="banner banner-parallax banner-parallax1" data-stellar-background-ratio="0.5">
   <div class="banner-filter"></div>
   <div class="banner-content text-center">
-    <h1>Toute la mode homme et tous les bons plans<br> sont sur Monsieur Mode Shop !</h1>
+    <h1>Toute la mode homme<br>et tous les bons plans sont<br>sur Monsieur Mode Shop !</h1>
     <p>Vos actus mode et les dernières tendances de vêtements et accessoires sont disponibles juste ici !</p>
   </div>
 </div>
@@ -75,8 +73,15 @@
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
+      <div class="item">
+        <%= image_tag "costume-homme.jpg"%>
+       <div class="carousel-caption">
+        <h2>C'est parti pour la saison des mariages !.</h2>
+        <p><%= link_to "Voir tous les costumes", products_path, class: "btn navbar-wagon-button cta btn-lg margin-sm" %></p>
+        </div>
+      </div>
     <div class="item active">
-      <%= image_tag "image4-parallax.jpg"%>
+      <%= image_tag "costume-homme.jpg"%>
       <div class="carousel-caption">
         <h2>Profitez des meilleurs prix du web !</h2>
       </div>

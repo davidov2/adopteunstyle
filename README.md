@@ -19,4 +19,12 @@ Filtres /products multicritères
 qui sommes nous
 home page boutique
 
-
+Facebook connect
+Vous êtes : un homme, une femme
+Vous recherchez :
+des vêtements, des chaussures, des accessoires
+Gamme de prix :
+entre 0 et 100
+entre 100 et 300
+plus de 300
+Votre style / look
